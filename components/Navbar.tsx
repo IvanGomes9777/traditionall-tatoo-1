@@ -20,6 +20,9 @@ const TICKER_ITEMS = [
   'Since 2012',
   'Hafen Münster',
 ];
+// repeats per lane — keeps one lane wider than any viewport so the -50% loop
+// never reveals a gap (covers up to ultra-wide screens)
+const TICKER_REPEAT = 4;
 
 function Star({ className = '' }: { className?: string }) {
   return (
@@ -138,23 +141,30 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Ticker marquee */}
+      {/* Ticker marquee — two identical lanes, each repeated wide enough to
+          always exceed the viewport, shifted by exactly one lane (-50%) for a
+          seamless, gap-free loop on any screen width */}
       <div className="overflow-hidden border-y-2 border-navy bg-red">
-        <div className="flex w-max motion-safe:animate-marquee">
-          {[0, 1].map((dup) => (
+        <div
+          className="flex w-max motion-safe:animate-marquee"
+          style={{ animationDuration: '45s' }}
+        >
+          {[0, 1].map((lane) => (
             <div
-              key={dup}
-              className="flex items-center py-2.5"
-              aria-hidden={dup === 1}
+              key={lane}
+              className="flex shrink-0 items-center py-2.5"
+              aria-hidden={lane === 1}
             >
-              {TICKER_ITEMS.map((item) => (
-                <span key={item} className="flex items-center">
-                  <span className="px-6 font-script text-[16px] text-cream">
-                    {item}
+              {Array.from({ length: TICKER_REPEAT }).flatMap((_, r) =>
+                TICKER_ITEMS.map((item) => (
+                  <span key={`${r}-${item}`} className="flex items-center">
+                    <span className="whitespace-nowrap px-6 font-script text-[16px] text-cream">
+                      {item}
+                    </span>
+                    <span className="text-[16px] text-navy">★</span>
                   </span>
-                  <span className="text-[16px] text-navy">★</span>
-                </span>
-              ))}
+                )),
+              )}
             </div>
           ))}
         </div>
