@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — FAQ · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .head{text-align:center;padding:42px 20px 26px}
+  .head .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px;color:var(--red)}
+  .head h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1;margin:0;text-transform:uppercase;color:var(--navy)}
+  details>summary{list-style:none;cursor:pointer}
+  details>summary::-webkit-details-marker{display:none}
+  .ans{font-family:'Bitter',serif;font-size:15px;line-height:1.7;color:var(--sepia)}
+
+  /* O1 Classic Accordion */
+  .o1{background:var(--cream);padding-bottom:54px}
+  .o1 .box{max-width:760px;margin:0 auto;padding:0 32px}
+  .o1 details{border:2px solid var(--navy);background:#fff;margin-bottom:14px}
+  .o1 summary{font-family:'Bitter',serif;font-weight:700;font-size:17px;color:var(--navy);padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+  .o1 .pl{color:var(--red);font-size:22px;transition:transform .25s}
+  .o1 details[open] .pl{transform:rotate(45deg)}
+  .o1 .ans{padding:0 24px 22px}
+
+  /* O2 Two Column */
+  .o2{background:var(--navy);padding-bottom:54px}
+  .o2 .head .k{color:var(--gold)}.o2 .head h2{color:var(--cream)}
+  .o2 .box{max-width:980px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .o2 details{border:1px solid var(--gold);background:rgba(244,236,216,.04);padding:0}
+  .o2 summary{font-family:'Bitter',serif;font-weight:700;font-size:15px;color:var(--cream);padding:16px 18px;display:flex;justify-content:space-between;gap:10px}
+  .o2 .pl{color:var(--gold)}
+  .o2 .ans{color:#cdbf9d;padding:0 18px 18px}
+
+  /* O3 Numbered Ledger */
+  .o3{background:var(--cream2);padding-bottom:40px}
+  .o3 .box{max-width:820px;margin:0 auto;padding:0 32px}
+  .o3 details{border-bottom:2px solid rgba(27,42,74,.18);padding:6px 0}
+  .o3 summary{display:flex;gap:18px;align-items:baseline;padding:16px 4px}
+  .o3 .no{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold);min-width:42px}
+  .o3 .qt{font-family:'Alfa Slab One',serif;font-size:18px;color:var(--navy);text-transform:uppercase;flex:1}
+  .o3 .pl{font-family:'Space Mono',monospace;color:var(--red)}
+  .o3 .ans{padding:0 4px 18px 60px}
+
+  /* O4 Hang Tags */
+  .o4{background:#243a63;padding-bottom:54px;background-image:radial-gradient(120% 80% at 50% 0,rgba(225,161,0,.12),transparent 55%)}
+  .o4 .head .k{color:var(--gold)}.o4 .head h2{color:var(--cream)}
+  .o4 .box{max-width:760px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:16px}
+  .o4 details{position:relative;background:#fbf7ec;color:var(--navy);padding:0 0 0 22px;border-radius:0 6px 6px 0;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+  .o4 details::before{content:"";position:absolute;left:9px;top:50%;transform:translateY(-50%);width:9px;height:9px;border-radius:50%;background:var(--navy);box-shadow:0 0 0 3px #fbf7ec,0 0 0 4px var(--gold)}
+  .o4 summary{font-family:'Bitter',serif;font-weight:700;font-size:16px;padding:18px 20px;display:flex;justify-content:space-between}
+  .o4 .pl{color:var(--red);font-size:20px}
+  .o4 .ans{padding:0 20px 20px}
+
+  /* O5 Index Cards */
+  .o5{background:var(--cream);padding-bottom:54px}
+  .o5 .box{max-width:760px;margin:0 auto;padding:0 32px;display:flex;flex-direction:column;gap:16px}
+  .o5 details{background:#fffdf6;border:1px solid #d9cfb4;border-left:5px solid var(--red);box-shadow:2px 3px 7px rgba(0,0,0,.12);position:relative}
+  .o5 details::after{content:"";position:absolute;top:0;left:0;right:0;height:26px;background:repeating-linear-gradient(90deg,transparent 0 28px,rgba(193,39,45,.12) 28px 29px);pointer-events:none}
+  .o5 summary{font-family:'Bitter',serif;font-weight:700;font-size:16px;color:var(--navy);padding:18px 20px;display:flex;justify-content:space-between}
+  .o5 .pl{color:var(--red);font-size:20px}
+  .o5 .ans{padding:0 20px 20px;font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 06</div>
+    <h1>FAQ — 5 Optionen</h1>
+    <p>Häufige Fragen (Termin, Walk-ins, Preise, ab 18, Aftercare). Alle Akkordeons sind klickbar — probier sie aus. Sag mir die Nummer.</p>
+  </div>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Classic Accordion</span><span class="opt-tag">der Prototyp, veredelt · „+" dreht zu „×"</span></div>
+    <p class="opt-desc">Marine-umrandete Panels, das <b>„+" rotiert zu „×"</b> beim Öffnen, sanftes Aufklappen. Klar, vertraut. <b>Motion:</b> Höhen-Slide + Icon-Rotation.</p>
+    <div class="frame"><div class="o1"><div class="head"><div class="k">// 04 — Gut zu wissen</div><h2>Häufige Fragen</h2></div><div class="box" id="g1"></div></div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Two-Column</span><span class="opt-tag">dunkel · kompakt · zweispaltig</span></div>
+    <p class="opt-desc">Auf Marine, <b>zwei Spalten</b> mit goldgerahmten Items — kompakt, viele Fragen ohne langes Scrollen. <b>Motion:</b> Aufklappen + Hover-Glow.</p>
+    <div class="frame"><div class="o2"><div class="head"><div class="k">// 04 — Gut zu wissen</div><h2>Häufige Fragen</h2></div><div class="box" id="g2"></div></div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Numbered Ledger</span><span class="opt-tag">editorial · große Ziffern · Slab-Fragen</span></div>
+    <p class="opt-desc">Wie ein <b>nummeriertes Verzeichnis</b> (01, 02 …) mit Slab-Fragen &amp; Linien-Trennern. Redaktionell, aufgeräumt. <b>Motion:</b> Reveal beim Scroll, sanftes Öffnen.</p>
+    <div class="frame"><div class="o3"><div class="head"><div class="k">// 04 — Gut zu wissen</div><h2>Häufige Fragen</h2></div><div class="box" id="g3"></div></div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Hang Tags</span><span class="opt-tag">old-school · wie Anhänge-Etiketten</span></div>
+    <p class="opt-desc">Jede Frage als <b>Anhänge-Etikett</b> mit Gold-Öse, auf Marine. Thematisch, charmant. <b>Motion:</b> Aufklappen, Tag „schaukelt" minimal beim Hover.</p>
+    <div class="frame"><div class="o4"><div class="head"><div class="k">// 04 — Gut zu wissen</div><h2>Häufige Fragen</h2></div><div class="box" id="g4"></div></div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Index Cards</span><span class="opt-tag">Karteikarten-Look · roter Rand</span></div>
+    <p class="opt-desc">Fragen als <b>Vintage-Karteikarten</b> (liniert, roter Rand) — passt zur Zettel-Ästhetik der Stimmen-Sektion. <b>Motion:</b> sanftes Aufklappen.</p>
+    <div class="frame"><div class="o5"><div class="head"><div class="k">// 04 — Gut zu wissen</div><h2>Häufige Fragen</h2></div><div class="box" id="g5"></div></div></div>
+  </section>
+</div>
+
+<script>
+  const FAQ = [
+    {q:'Wie buche ich einen Termin?', a:'Schreib uns über das Kontaktformular, per DM auf Instagram oder komm direkt vorbei. Wir melden uns mit einem Vorschlag und einer sauberen Skizze zurück.'},
+    {q:'Gibt es Walk-ins?', a:'Ja — jeden Freitag und Samstag. Such dir ein Motiv von der Flash-Wand aus, first come, first served. Für größere Projekte lieber vorher einen Termin machen.'},
+    {q:'Was kostet ein Tattoo?', a:'Flash-Motive starten bei 90 €. Custom-Arbeiten rechnen wir nach Tagessatz ab. Den genauen Preis bekommst du immer vorher — keine Überraschungen.'},
+    {q:'Ab welchem Alter?', a:'Ab 18 Jahren mit gültigem Ausweis. Keine Ausnahmen, auch nicht mit Einverständnis der Eltern.'},
+    {q:'Wie pflege ich mein frisches Tattoo?', a:'Du bekommst von uns ein Merkblatt mit allen Schritten. Kurz: sauber halten, dünn eincremen, zwei Wochen kein Solarium, keine Sauna, kein Schwimmbad.'},
+    {q:'Kann ich mein eigenes Design mitbringen?', a:'Unbedingt. Bring Referenzen mit — wir verfeinern deine Idee zu einem sauberen Traditional-Entwurf, der für die Ewigkeit sitzt.'},
+  ];
+  const d1 = FAQ.map(f=>`<details><summary>${f.q}<span class="pl">+</span></summary><div class="ans">${f.a}</div></details>`).join('');
+  document.getElementById('g1').innerHTML=d1;
+  document.getElementById('g2').innerHTML=d1;
+  document.getElementById('g3').innerHTML=FAQ.map((f,i)=>`<details><summary><span class="no">0${i+1}</span><span class="qt">${f.q}</span><span class="pl">+</span></summary><div class="ans">${f.a}</div></details>`).join('');
+  document.getElementById('g4').innerHTML=d1;
+  document.getElementById('g5').innerHTML=d1;
+</script>
+</body>
+</html>
