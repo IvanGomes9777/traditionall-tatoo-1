@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Navbar / Header · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A4A; --navy-d:#14213a; --red:#C1272D; --gold:#C9A86A;
+    --cream:#F4ECD8; --cream2:#ece3cd; --sepia:#5C4033;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif;
+       background-image:radial-gradient(circle at 50% 0,rgba(201,168,106,.06),transparent 60%);}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:48px 28px 100px}
+  .page-head{text-align:center;margin-bottom:14px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:640px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:46px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:880px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .stage{background:var(--cream);min-height:230px;position:relative}
+  .stage.dark{background:var(--navy)}
+  .scene-note{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9a8c6a;padding:10px 16px;background:var(--cream2);text-align:center}
+  .stage.dark .scene-note{background:#16213a;color:#6f7e9c}
+  .filler{padding:40px;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#b3a784;opacity:.6}
+  .stage.dark .filler{color:#5c6a88}
+
+  /* shared nav atoms */
+  @keyframes twinkle{0%,100%{opacity:1;transform:scale(1) rotate(0)}50%{opacity:.4;transform:scale(.8) rotate(10deg)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes drop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes spinStar{to{transform:rotate(360deg)}}
+
+  /* ===== OPT 1 Classic Frame ===== */
+  .o1-ann{background:var(--navy);color:var(--gold);font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:9px 16px}
+  .o1-nav{background:rgba(244,236,216,.94);border-bottom:2px solid var(--navy);animation:drop .6s ease both}
+  .o1-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 32px}
+  .o1-logo{font-family:'Rye',serif;font-size:21px;color:var(--navy);display:flex;align-items:center;gap:9px}
+  .o1-links{display:flex;gap:28px;font-family:'Bitter',serif;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .o1-links a{transition:color .2s}.o1-links a:hover{color:var(--red)}
+  .o1-cta{font-family:'Bitter',serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--red);padding:11px 20px;box-shadow:3px 3px 0 var(--navy);transition:all .2s}
+  .o1-cta:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--navy)}
+
+  /* ===== OPT 2 Heraldic Crest ===== */
+  .o2-nav{background:var(--cream);border-bottom:2px solid var(--navy);padding:14px 32px;animation:drop .6s ease both}
+  .o2-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+  .o2-links{display:flex;gap:26px;font-family:'Bitter',serif;font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+  .o2-links a{transition:color .2s;position:relative}
+  .o2-links a:hover{color:var(--red)}
+  .o2-links.right{justify-content:flex-end}
+  .o2-crest{display:flex;flex-direction:column;align-items:center;gap:4px}
+  .o2-badge{width:62px;height:62px;border-radius:50%;border:2px solid var(--navy);background:radial-gradient(circle,#fff,var(--cream2));display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 0 0 4px var(--cream),0 0 0 5px var(--gold)}
+  .o2-name{font-family:'Rye',serif;font-size:13px;color:var(--navy);white-space:nowrap}
+  .o2-ribbon{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);background:var(--red);padding:2px 12px}
+
+  /* ===== OPT 3 Dark Navy Bar ===== */
+  .o3-nav{background:var(--navy);border-bottom:2px solid var(--gold);padding:18px 32px;animation:drop .6s ease both}
+  .o3-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .o3-logo{font-family:'Rye',serif;font-size:21px;color:var(--cream);display:flex;align-items:center;gap:9px}
+  .o3-links{display:flex;gap:30px;font-family:'Bitter',serif;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream)}
+  .o3-links a{position:relative;padding-bottom:4px}
+  .o3-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:width .25s ease}
+  .o3-links a:hover{color:var(--gold)}.o3-links a:hover::after{width:100%}
+  .o3-cta{font-family:'Bitter',serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--gold);width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;border:2px dashed var(--navy);transition:transform .2s}
+  .o3-cta:hover{transform:rotate(-6deg) scale(1.05)}
+
+  /* ===== OPT 4 Ticker Header ===== */
+  .o4-util{background:var(--navy);color:var(--gold);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;padding:7px 32px}
+  .o4-nav{background:var(--cream);padding:14px 32px;border-bottom:2px solid var(--navy)}
+  .o4-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+  .o4-logo{font-family:'Alfa Slab One',serif;font-size:20px;color:var(--navy);text-transform:uppercase}
+  .o4-links{display:flex;align-items:center;gap:0;font-family:'Bitter',serif;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .o4-links a{padding:0 16px;transition:color .2s}.o4-links a:hover{color:var(--red)}
+  .o4-star{color:var(--red);font-size:11px;display:inline-block;animation:spinStar 9s linear infinite}
+  .o4-tick{overflow:hidden;background:var(--red);border-top:2px solid var(--navy);border-bottom:2px solid var(--navy)}
+  .o4-tick .run{display:flex;width:max-content;animation:marquee 22s linear infinite}
+  .o4-tick .grp{display:flex;align-items:center;padding:9px 0}
+  .o4-tick .grp span{font-family:'Rye',serif;font-size:16px;color:var(--cream);padding:0 22px}
+  .o4-tick .grp i{color:var(--navy);font-style:normal}
+
+  /* ===== OPT 5 Minimal Stamp + Overlay ===== */
+  .o5-nav{background:var(--cream);padding:18px 32px;border-bottom:2px solid var(--navy);position:relative;z-index:2}
+  .o5-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .o5-logo{font-family:'Rye',serif;font-size:20px;color:var(--navy);display:flex;align-items:center;gap:8px}
+  .o5-right{display:flex;align-items:center;gap:18px}
+  .o5-stamp{font-family:'Bitter',serif;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);border:2px solid var(--red);border-radius:50%;width:70px;height:70px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;transform:rotate(-8deg);transition:all .2s}
+  .o5-stamp:hover{background:var(--red);color:var(--cream);transform:rotate(0) scale(1.04)}
+  .o5-burger{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);cursor:pointer;display:flex;align-items:center;gap:8px;background:none;border:none}
+  .o5-burger .bars{display:inline-flex;flex-direction:column;gap:3px}
+  .o5-burger .bars i{width:22px;height:2px;background:var(--navy);display:block}
+  .o5-overlay{position:absolute;inset:0;background:var(--navy);z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+  .o5-overlay.open{opacity:1;pointer-events:auto}
+  .o5-overlay a{font-family:'Alfa Slab One',serif;font-size:24px;color:var(--cream);text-transform:uppercase;transition:color .2s}
+  .o5-overlay a:hover{color:var(--gold)}
+  .o5-close{position:absolute;top:14px;right:24px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);cursor:pointer;background:none;border:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 01</div>
+    <h1>Navbar / Header — 5 Optionen</h1>
+    <p>Alle in der Vintage-DNA (Marine #1B2A4A · Rot #C1272D · Gold #C9A86A · Creme #F4ECD8). Fahr mit der Maus über Links &amp; Buttons — Hover &amp; Micro-Interactions sind live. Sag mir die Nummer (oder „Mix aus 1+3"), dann baue ich sie in Next.js.</p>
+  </div>
+
+  <!-- OPTION 1 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Classic Frame</span><span class="opt-tag">der Prototyp, veredelt · safe choice</span></div>
+    <p class="opt-desc">Die Linie aus dem Design: <b>Announcement-Bar</b> + sticky Creme-Nav, ⚓-Rye-Logo links, Uppercase-Links, roter <b>Hard-Shadow-CTA</b>. <b>Motion:</b> Nav „droppt" beim Load von oben rein; CTA-Schatten wächst beim Hover (Stempel-Versatz).</p>
+    <div class="frame"><div class="stage">
+      <div class="o1-ann">★ Walk-ins jeden Freitag &amp; Samstag · Hafenweg, Münster · Est. 2012 ★</div>
+      <div class="o1-nav"><div class="o1-inner">
+        <a class="o1-logo">⚓ Anker &amp; Dolch</a>
+        <div class="o1-links"><a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a></div>
+        <a class="o1-cta">Termin ★</a>
+      </div></div>
+      <div class="filler">↓ Hero-Bereich</div>
+    </div></div>
+  </section>
+
+  <!-- OPTION 2 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Heraldic Crest</span><span class="opt-tag">Wappen-zentriert · symmetrisch · maritim</span></div>
+    <p class="opt-desc">Zentrales <b>Emblem-Wappen</b> (Anker im Gold-Ring), Links splitten sich symmetrisch links/rechts, kleines rotes <b>Banner-Ribbon</b> unter dem Logo. Wirkt wie ein Studio-Siegel. <b>Motion:</b> Wappen skaliert sanft beim Scroll, Links mit Rot-Hover.</p>
+    <div class="frame"><div class="stage">
+      <div class="o2-nav"><div class="o2-inner">
+        <div class="o2-links"><a>Flash</a><a>Crew</a><a>Stimmen</a></div>
+        <div class="o2-crest"><div class="o2-badge">⚓</div><div class="o2-name">Anker &amp; Dolch</div><div class="o2-ribbon">Est. 2012</div></div>
+        <div class="o2-links right"><a>FAQ</a><a>Kontakt</a><a style="color:var(--red)">Termin ★</a></div>
+      </div></div>
+      <div class="filler">↓ Hero-Bereich</div>
+    </div></div>
+  </section>
+
+  <!-- OPTION 3 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Dark Navy Bar</span><span class="opt-tag">invertiert · dramatisch · Wax-Stamp-CTA</span></div>
+    <p class="opt-desc">Invertiert: <b>solide Marine-Bar</b>, Creme/Gold-Text, <b>Gold-Underline-Draw</b> beim Hover, runder <b>Wachssiegel-CTA</b> (gestrichelter Ring). „Tattoo-Parlor bei Nacht". <b>Motion:</b> Underline zeichnet sich von links, Siegel kippt &amp; wächst beim Hover.</p>
+    <div class="frame"><div class="stage dark">
+      <div class="o3-nav"><div class="o3-inner">
+        <a class="o3-logo">⚓ Anker &amp; Dolch</a>
+        <div class="o3-links"><a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a></div>
+        <a class="o3-cta">Termin ★</a>
+      </div></div>
+      <div class="filler">↓ Hero-Bereich</div>
+    </div></div>
+  </section>
+
+  <!-- OPTION 4 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Ticker Header</span><span class="opt-tag">Western-Slab · Stern-Trenner · Lauftext integriert</span></div>
+    <p class="opt-desc">Dünne <b>Utility-Bar</b> (Öffnungszeiten/Telefon) → zentrierte Slab-Nav mit <b>rotierenden Stern-Trennern</b> ★ zwischen den Links → der <b>Old-School-Ticker</b> sitzt direkt im Header. Maximaler Americana-Vibe. <b>Motion:</b> Sterne drehen langsam, Ticker läuft endlos.</p>
+    <div class="frame"><div class="stage">
+      <div class="o4-util"><span>Di–Sa · 11–19 Uhr</span><span>0251 / 22 14 88 · @anker.dolch</span></div>
+      <div class="o4-nav"><div class="o4-inner">
+        <div class="o4-links"><a>Flash</a><span class="o4-star">★</span><a>Crew</a></div>
+        <div class="o4-logo">⚓ Anker &amp; Dolch</div>
+        <div class="o4-links"><a>FAQ</a><span class="o4-star">★</span><a>Kontakt</a></div>
+      </div></div>
+      <div class="o4-tick"><div class="run">
+        <div class="grp"><span>Bold Lines</span><i>★</i><span>Solid Color</span><i>★</i><span>Walk-Ins Willkommen</span><i>★</i><span>Since 2012</span><i>★</i><span>Hafen Münster</span><i>★</i></div>
+        <div class="grp"><span>Bold Lines</span><i>★</i><span>Solid Color</span><i>★</i><span>Walk-Ins Willkommen</span><i>★</i><span>Since 2012</span><i>★</i><span>Hafen Münster</span><i>★</i></div>
+      </div></div>
+    </div></div>
+  </section>
+
+  <!-- OPTION 5 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Minimal Stamp</span><span class="opt-tag">reduziert · Vollbild-Overlay-Menü · modern-vintage</span></div>
+    <p class="opt-desc">Maximal reduziert: Logo + runder <b>Termin-Stempel</b> + Mono-Menübutton. Klick öffnet ein <b>Vollbild-Marine-Overlay</b> mit großen Slab-Links. Modern, mobil-first, viel Ruhe. <b>Probier's:</b> auf „Menü" klicken. <b>Motion:</b> Overlay faded ein, Stempel richtet sich beim Hover auf.</p>
+    <div class="frame"><div class="stage" id="o5stage">
+      <div class="o5-nav"><div class="o5-inner">
+        <a class="o5-logo">⚓ Anker &amp; Dolch</a>
+        <div class="o5-right">
+          <a class="o5-stamp">Termin<br>★</a>
+          <button class="o5-burger" onclick="document.getElementById('o5ov').classList.add('open')"><span class="bars"><i></i><i></i><i></i></span> Menü</button>
+        </div>
+      </div></div>
+      <div class="filler">↓ Hero-Bereich</div>
+      <div class="o5-overlay" id="o5ov">
+        <button class="o5-close" onclick="document.getElementById('o5ov').classList.remove('open')">✕ Schließen</button>
+        <a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a>
+      </div>
+    </div></div>
+  </section>
+</div>
+</body>
+</html>
