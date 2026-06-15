@@ -37,10 +37,16 @@ function Star({ className = '' }: { className?: string }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [pastHeader, setPastHeader] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 8);
+      // show the floating Termin button once the header has scrolled away
+      setPastHeader(y > 120);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -55,7 +61,8 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 motion-safe:animate-drop">
+    <>
+    <header className="relative z-50 motion-safe:animate-drop">
       {/* Utility bar */}
       <div className="bg-navy text-gold font-mono text-[0.6875rem] tracking-[0.14em] uppercase">
         <div className="mx-auto flex max-w-shell items-center justify-between gap-3 px-5 py-[7px] sm:px-8">
@@ -206,5 +213,32 @@ export default function Navbar() {
         </a>
       </div>
     </header>
+
+    {/* Floating action buttons — kept outside <header> so they stay fixed to
+        the viewport and remain reachable once the header has scrolled away */}
+    <div
+      className={`fixed bottom-5 right-5 z-[55] flex items-center gap-3 transition-all duration-300 sm:bottom-7 sm:right-7 ${
+        pastHeader && !menuOpen
+          ? 'opacity-100'
+          : 'pointer-events-none translate-y-3 opacity-0'
+      }`}
+      aria-hidden={!pastHeader || menuOpen}
+    >
+      <a
+        href="tel:+49251221488"
+        className="flex min-h-[44px] items-center gap-2 bg-navy px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+      >
+        <span aria-hidden="true">☎</span> Anruf
+      </a>
+      <a
+        href="#kontakt"
+        className="flex min-h-[44px] items-center bg-red px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+      >
+        Termin&nbsp;★
+      </a>
+    </div>
+    </>
   );
 }
