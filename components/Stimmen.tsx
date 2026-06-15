@@ -104,7 +104,7 @@ export default function Stimmen() {
               style={{ transitionDelay: revealed ? `${i * 90}ms` : '0ms' }}
             >
               <figure
-                className="relative w-[280px] bg-white px-[22px] pb-[26px] pt-[22px] shadow-[3px_5px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 [transform:rotate(var(--rot))] hover:z-10 hover:[transform:rotate(0deg)_scale(1.03)]"
+                className="relative w-[min(280px,100%)] bg-white px-[22px] pb-[26px] pt-[22px] shadow-[3px_5px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 [transform:rotate(var(--rot))] hover:z-10 hover:[transform:rotate(0deg)_scale(1.03)]"
                 style={{ ['--rot' as string]: ROTATIONS[i % ROTATIONS.length] }}
               >
                 {/* pin */}

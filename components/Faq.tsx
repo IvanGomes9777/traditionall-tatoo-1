@@ -2,35 +2,7 @@
 
 import { useState } from 'react';
 import Reveal from '@/components/Reveal';
-
-type QA = { q: string; a: string };
-
-const FAQS: QA[] = [
-  {
-    q: 'Wie buche ich einen Termin?',
-    a: 'Schreib uns über das Kontaktformular, per DM auf Instagram oder komm direkt vorbei. Wir melden uns mit einem Vorschlag und einer sauberen Skizze zurück.',
-  },
-  {
-    q: 'Gibt es Walk-ins?',
-    a: 'Ja — jeden Freitag und Samstag. Such dir ein Motiv von der Flash-Wand aus, first come, first served. Für größere Projekte lieber vorher einen Termin machen.',
-  },
-  {
-    q: 'Was kostet ein Tattoo?',
-    a: 'Flash-Motive starten bei 90 €. Custom-Arbeiten rechnen wir nach Tagessatz ab. Den genauen Preis bekommst du immer vorher — keine Überraschungen.',
-  },
-  {
-    q: 'Ab welchem Alter?',
-    a: 'Ab 18 Jahren mit gültigem Ausweis. Keine Ausnahmen, auch nicht mit Einverständnis der Eltern.',
-  },
-  {
-    q: 'Wie pflege ich mein frisches Tattoo?',
-    a: 'Du bekommst von uns ein Merkblatt mit allen Schritten. Kurz: sauber halten, dünn eincremen, zwei Wochen kein Solarium, keine Sauna, kein Schwimmbad.',
-  },
-  {
-    q: 'Kann ich mein eigenes Design mitbringen?',
-    a: 'Unbedingt. Bring Referenzen mit — wir verfeinern deine Idee zu einem sauberen Traditional-Entwurf, der für die Ewigkeit sitzt.',
-  },
-];
+import { FAQS, type QA } from '@/lib/faq';
 
 function FaqItem({
   item,

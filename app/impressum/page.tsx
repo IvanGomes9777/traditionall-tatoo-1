@@ -3,6 +3,7 @@ import LegalShell from '@/components/LegalShell';
 
 export const metadata: Metadata = {
   title: 'Impressum',
+  alternates: { canonical: '/impressum' },
   robots: { index: false, follow: true },
 };
 

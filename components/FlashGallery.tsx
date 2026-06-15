@@ -189,7 +189,7 @@ export default function FlashGallery() {
                 type="button"
                 onClick={() => setFilter(f.value)}
                 aria-pressed={isActive}
-                className={`border-2 border-gold px-4 py-2 font-body text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 ${
+                className={`inline-flex min-h-[44px] items-center border-2 border-gold px-4 font-body text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 ${
                   isActive
                     ? 'bg-gold text-navy'
                     : 'bg-transparent text-cream hover:bg-gold hover:text-navy'

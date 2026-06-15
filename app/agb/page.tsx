@@ -3,6 +3,7 @@ import LegalShell from '@/components/LegalShell';
 
 export const metadata: Metadata = {
   title: 'AGB',
+  alternates: { canonical: '/agb' },
   robots: { index: false, follow: true },
 };
 

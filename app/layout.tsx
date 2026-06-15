@@ -1,7 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Alfa_Slab_One, Rye, Bitter, Space_Mono } from 'next/font/google';
 import './globals.css';
 import CookieConsent from '@/components/CookieConsent';
+import { SITE_URL, siteGraph } from '@/lib/site';
 
 const alfa = Alfa_Slab_One({
   weight: '400',
@@ -29,10 +30,16 @@ const spaceMono = Space_Mono({
   display: 'swap',
 });
 
-const SITE_URL = 'https://anker-dolch.de';
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#1B2A4A',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: '/' },
+  icons: { icon: '/icon.svg' },
   title: {
     default: 'Anker & Dolch Tattoo — Traditional Tattoos, Münster',
     template: '%s · Anker & Dolch Tattoo',
@@ -59,39 +66,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-// Schema.org markup (TattooParlor) per MAGIC-TEMPLATE.md pre-launch checklist
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TattooParlor',
-  name: 'Anker & Dolch Tattoo',
-  description:
-    'Old-School & American Traditional Tattoo Studio am Hafen von Münster.',
-  url: SITE_URL,
-  telephone: '+49 251 221488',
-  email: 'hallo@anker-dolch.de',
-  foundingDate: '2012',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Hafenweg 14',
-    postalCode: '48155',
-    addressLocality: 'Münster',
-    addressCountry: 'DE',
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '11:00',
-      closes: '19:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Saturday',
-      opens: '11:00',
-      closes: '16:00',
-    },
-  ],
-};
+// Linked entity @graph (Organization + WebSite + WebPage + TattooParlor + Person)
+const jsonLd = siteGraph();
 
 export default function RootLayout({
   children,

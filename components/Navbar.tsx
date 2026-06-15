@@ -127,7 +127,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
-            className="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.14em] text-navy md:hidden"
+            className="flex min-h-[44px] items-center gap-2 font-mono text-[12px] uppercase tracking-[0.14em] text-navy md:hidden"
             aria-label="Menü öffnen"
             aria-expanded={menuOpen}
           >

@@ -3,6 +3,7 @@ import LegalShell from '@/components/LegalShell';
 
 export const metadata: Metadata = {
   title: 'Datenschutzerklärung',
+  alternates: { canonical: '/datenschutz' },
   robots: { index: false, follow: true },
 };
 
