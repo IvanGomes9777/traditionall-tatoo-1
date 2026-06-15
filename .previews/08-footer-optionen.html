@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Footer · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:wght@0,400;0,600;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:46px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+
+  .lg{font-family:'Rye',serif;display:flex;align-items:center;gap:10px}
+  .nav a,.legal a{transition:color .2s}
+  .nav a:hover{color:var(--gold)}.legal a:hover{color:var(--cream)}
+
+  /* O1 Classic */
+  .o1{background:var(--navy-d);color:var(--cream);border-top:3px solid var(--gold);padding:50px 40px 36px}
+  .o1 .top{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding-bottom:26px;border-bottom:1px solid rgba(244,236,216,.16)}
+  .o1 .lg{font-size:24px}
+  .o1 .nav{display:flex;gap:24px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .o1 .bot{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;padding-top:22px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(244,236,216,.55)}
+  .o1 .legal{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* O2 Big CTA */
+  .o2cta{background:var(--red);color:var(--cream);text-align:center;padding:46px 40px}
+  .o2cta h3{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(26px,3.4vw,40px);margin:0 0 18px;text-transform:uppercase}
+  .o2cta .b{display:inline-block;font-family:'Bitter',serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;background:var(--cream);color:var(--navy);padding:15px 34px;box-shadow:4px 4px 0 var(--navy)}
+  .o2{background:var(--navy-d);color:var(--cream);padding:34px 40px}
+  .o2 .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(244,236,216,.6)}
+  .o2 .legal{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* O3 Ticker footer */
+  .o3tick{overflow:hidden;background:var(--gold);border-top:3px solid var(--navy-d)}
+  .o3tick .run{display:flex;width:max-content;animation:mq 24s linear infinite}
+  .o3tick .run span{font-family:'Rye',serif;font-size:18px;color:var(--navy);padding:10px 26px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .o3{background:var(--navy-d);color:var(--cream);padding:40px;text-align:center}
+  .o3 .lg{font-size:26px;justify-content:center;margin-bottom:14px}
+  .o3 .nav{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+  .o3 .legal{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:rgba(244,236,216,.55)}
+
+  /* O4 Emblem */
+  .o4{background:radial-gradient(120% 120% at 50% 0,rgba(201,168,106,.14),transparent 55%),var(--navy-d);color:var(--cream);padding:50px 40px;text-align:center}
+  .o4 .seal{width:84px;height:84px;border-radius:50%;border:2px dashed var(--gold);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 14px}
+  .o4 .lg{font-size:24px;justify-content:center}
+  .o4 .tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:8px 0 18px}
+  .o4 .legal{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;color:rgba(244,236,216,.55)}
+
+  /* O5 Multi-column */
+  .o5{background:var(--navy-d);color:var(--cream);border-top:3px solid var(--gold);padding:50px 40px 30px}
+  .o5 .cols{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+  .o5 h4{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+  .o5 .lg{font-size:22px;margin-bottom:10px}
+  .o5 .col p,.o5 .col a{display:block;font-family:'Bitter',serif;font-size:13px;line-height:1.9;color:rgba(244,236,216,.7)}
+  .o5 .bot{max-width:1180px;margin:26px auto 0;padding-top:18px;border-top:1px solid rgba(244,236,216,.14);font-family:'Space Mono',monospace;font-size:11px;color:rgba(244,236,216,.5);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 08</div>
+    <h1>Footer — 5 Optionen</h1>
+    <p>Inkl. Rechts-Links (Impressum · Datenschutz · AGB · Cookie-Einstellungen). Sag mir die Nummer.</p>
+  </div>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Classic Footer</span><span class="opt-tag">der Prototyp, veredelt</span></div>
+    <p class="opt-desc">Marine, Gold-Top-Border, Logo + Nav-Links oben, Rechtliches + Copyright unten. Schlicht &amp; klar.</p>
+    <div class="frame"><footer class="o1">
+      <div class="top"><div class="lg">⚓ Anker &amp; Dolch</div><div class="nav"><a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a></div></div>
+      <div class="bot"><span>© 2026 Anker &amp; Dolch Tattoo · Hafenweg 14 · Münster</span><div class="legal"><a>Impressum</a><a>Datenschutz</a><a>AGB</a><a>Cookies</a></div></div>
+    </footer></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Big CTA Footer</span><span class="opt-tag">roter CTA-Band oben + Footer</span></div>
+    <p class="opt-desc">Großes <b>„Bereit für dein Tattoo?"-Band</b> in Rot mit Button, darunter kompakter Footer. Letzter Conversion-Push.</p>
+    <div class="frame">
+      <div class="o2cta"><h3>Bereit für echtes Handwerk?</h3><a class="b">★ Termin anfragen ★</a></div>
+      <footer class="o2"><div class="in"><span>© 2026 Anker &amp; Dolch Tattoo · Bold &amp; true since 2012</span><div class="legal"><a>Impressum</a><a>Datenschutz</a><a>AGB</a><a>Cookies</a></div></div></footer>
+    </div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Ticker Footer</span><span class="opt-tag">Lauftext-Band (spiegelt die Navbar)</span></div>
+    <p class="opt-desc">Goldenes <b>Lauftext-Band</b> oben (greift den Navbar-Ticker auf), darunter zentriert Logo, Nav &amp; Rechtliches. Rundet die Seite ein.</p>
+    <div class="frame">
+      <div class="o3tick"><div class="run"><span>Bold Lines ★ Solid Color ★ Walk-Ins ★ Since 2012 ★ Hafen Münster ★</span><span>Bold Lines ★ Solid Color ★ Walk-Ins ★ Since 2012 ★ Hafen Münster ★</span></div></div>
+      <footer class="o3"><div class="lg">⚓ Anker &amp; Dolch</div><div class="nav"><a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a></div><div class="legal"><a>Impressum</a><a>Datenschutz</a><a>AGB</a><a>Cookie-Einstellungen</a> · <span>© 2026</span></div></footer>
+    </div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Emblem Footer</span><span class="opt-tag">zentriertes Anker-Siegel</span></div>
+    <p class="opt-desc">Zentriertes <b>Anker-Wachssiegel</b>, Logo, „Bold &amp; true since 2012", darunter Rechtliches. Edel, reduziert.</p>
+    <div class="frame"><footer class="o4">
+      <div class="seal">⚓</div><div class="lg">Anker &amp; Dolch</div><div class="tag">Bold &amp; True · Since 2012</div>
+      <div class="legal"><a>Impressum</a><a>Datenschutz</a><a>AGB</a><a>Cookie-Einstellungen</a><span>· © 2026 Münster</span></div>
+    </footer></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Multi-Column</span><span class="opt-tag">umfassend · 4 Spalten</span></div>
+    <p class="opt-desc">Vier Spalten: Studio/Adresse · Navigation · Rechtliches · Social. Am informativsten, ideal für SEO &amp; Übersicht.</p>
+    <div class="frame"><footer class="o5">
+      <div class="cols">
+        <div class="col"><div class="lg">⚓ Anker &amp; Dolch</div><p>Hafenweg 14<br>48155 Münster<br>0251 / 22 14 88<br>hallo@anker-dolch.de</p></div>
+        <div class="col"><h4>Navigation</h4><a>Flash</a><a>Crew</a><a>Stimmen</a><a>FAQ</a><a>Kontakt</a></div>
+        <div class="col"><h4>Rechtliches</h4><a>Impressum</a><a>Datenschutz</a><a>AGB</a><a>Cookie-Einstellungen</a></div>
+        <div class="col"><h4>Folg uns</h4><a>Instagram</a><a>Öffnungszeiten<br>Di–Sa</a></div>
+      </div>
+      <div class="bot">© 2026 Anker &amp; Dolch Tattoo · Bold &amp; true since 2012 · Tätowiert ab 18</div>
+    </footer></div>
+  </section>
+</div>
+</body>
+</html>
