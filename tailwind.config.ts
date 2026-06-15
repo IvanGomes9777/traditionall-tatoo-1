@@ -23,7 +23,9 @@ const config: Config = {
         mono: ['var(--font-mono)', 'monospace'],
       },
       maxWidth: {
-        shell: '1180px',
+        // fluid: fills ~95% of the viewport on laptops (no dark side gutters),
+        // capped at 1440px on very large monitors
+        shell: 'min(95vw, 1440px)',
       },
       keyframes: {
         marquee: {
