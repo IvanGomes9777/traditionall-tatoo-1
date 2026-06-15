@@ -31,9 +31,14 @@ const VOICES: Voice[] = [
       'Vom Walk-in zum Lieblingsstudio. Greta hat meine Idee perfekt umgesetzt.',
     name: 'Dennis L. · Osnabrück',
   },
+  {
+    quote:
+      'Top Hygiene, entspannte Atmosphäre und ein Ergebnis genau in meinem Stil. Klare Empfehlung.',
+    name: 'Lukas T. · Münster',
+  },
 ];
 
-const ROTATIONS = ['-2.4deg', '1.8deg', '-1deg', '2deg', '-1.6deg'];
+const ROTATIONS = ['-2.4deg', '1.8deg', '-1deg', '2deg', '-1.6deg', '1.2deg'];
 
 // TODO(production): sobald das Google-Business-Profil steht, durch die echte
 // "Bewertung schreiben"-URL ersetzen:
@@ -93,7 +98,7 @@ export default function Stimmen() {
 
         <ul
           ref={ref}
-          className="m-0 flex list-none flex-wrap justify-center gap-7 p-0"
+          className="m-0 grid list-none gap-7 p-0 sm:grid-cols-2 lg:grid-cols-3"
         >
           {VOICES.map((v, i) => (
             <li
@@ -104,7 +109,7 @@ export default function Stimmen() {
               style={{ transitionDelay: revealed ? `${i * 90}ms` : '0ms' }}
             >
               <figure
-                className="relative w-[min(280px,100%)] bg-white px-[22px] pb-[26px] pt-[22px] shadow-[3px_5px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 [transform:rotate(var(--rot))] hover:z-10 hover:[transform:rotate(0deg)_scale(1.03)]"
+                className="relative mx-auto w-full max-w-[340px] bg-white px-[22px] pb-[26px] pt-[22px] shadow-[3px_5px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 [transform:rotate(var(--rot))] hover:z-10 hover:[transform:rotate(0deg)_scale(1.03)]"
                 style={{ ['--rot' as string]: ROTATIONS[i % ROTATIONS.length] }}
               >
                 {/* pin */}
