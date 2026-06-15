@@ -214,20 +214,31 @@ export default function Navbar() {
       </div>
     </header>
 
-    {/* Floating Termin button — kept outside <header> so it stays fixed to the
-        viewport and remains reachable once the header has scrolled away */}
-    <a
-      href="#kontakt"
-      className={`fixed bottom-5 right-5 z-[55] flex min-h-[44px] items-center bg-red px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-all duration-300 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A] sm:bottom-7 sm:right-7 ${
+    {/* Floating action buttons — kept outside <header> so they stay fixed to
+        the viewport and remain reachable once the header has scrolled away */}
+    <div
+      className={`fixed bottom-5 right-5 z-[55] flex items-center gap-3 transition-all duration-300 sm:bottom-7 sm:right-7 ${
         pastHeader && !menuOpen
           ? 'opacity-100'
           : 'pointer-events-none translate-y-3 opacity-0'
       }`}
       aria-hidden={!pastHeader || menuOpen}
-      tabIndex={pastHeader && !menuOpen ? 0 : -1}
     >
-      Termin&nbsp;★
-    </a>
+      <a
+        href="tel:+49251221488"
+        className="flex min-h-[44px] items-center gap-2 bg-navy px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+      >
+        <span aria-hidden="true">☎</span> Anruf
+      </a>
+      <a
+        href="#kontakt"
+        className="flex min-h-[44px] items-center bg-red px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+      >
+        Termin&nbsp;★
+      </a>
+    </div>
     </>
   );
 }
