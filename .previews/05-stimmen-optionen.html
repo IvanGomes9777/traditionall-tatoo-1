@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Stimmen · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .head{text-align:center;padding:42px 20px 26px}
+  .head .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px;color:var(--gold)}
+  .head h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1;margin:0;text-transform:uppercase;color:var(--cream)}
+  .stars{color:var(--gold);letter-spacing:3px;font-size:15px}
+
+  /* O1 Card Trio */
+  .o1{background:var(--navy);padding-bottom:54px}
+  .o1 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .o1 .c{background:var(--cream);color:var(--navy);padding:30px 28px;border:2px solid var(--gold)}
+  .o1 .q{font-family:'Bitter',serif;font-style:italic;font-size:17px;line-height:1.65;margin:14px 0 18px}
+  .o1 .n{font-family:'Rye',serif;font-size:16px;color:var(--red)}
+
+  /* O2 Marquee */
+  .o2{background:var(--navy-d);padding-bottom:40px;overflow:hidden}
+  .o2 .track{display:flex;gap:22px;width:max-content;animation:scroll 32s linear infinite;padding:0 11px}
+  .o2:hover .track{animation-play-state:paused}
+  .o2 .c{flex:0 0 320px;background:var(--cream);color:var(--navy);padding:26px 24px;border-left:4px solid var(--red)}
+  .o2 .q{font-family:'Bitter',serif;font-style:italic;font-size:15px;line-height:1.6;margin:12px 0 14px}
+  .o2 .n{font-family:'Rye',serif;font-size:15px;color:var(--red)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .o2 .hint{text-align:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6f7e9c;text-transform:uppercase;margin-top:18px}
+
+  /* O3 Featured rotating */
+  .o3{background:var(--navy);padding-bottom:48px}
+  .o3 .stage{max-width:760px;margin:0 auto;padding:0 32px;text-align:center;min-height:230px}
+  .o3 .big{font-family:'Bitter',serif;font-style:italic;font-size:clamp(20px,2.6vw,30px);line-height:1.5;color:var(--cream);transition:opacity .4s}
+  .o3 .who{font-family:'Rye',serif;font-size:18px;color:var(--gold);margin-top:20px}
+  .o3 .dots{display:flex;gap:10px;justify-content:center;margin-top:26px}
+  .o3 .dots button{width:11px;height:11px;border-radius:50%;border:2px solid var(--gold);background:transparent;cursor:pointer;padding:0}
+  .o3 .dots button.on{background:var(--gold)}
+
+  /* O4 Receipts */
+  .o4{background:#223861;padding-bottom:54px}
+  .o4 .grid{max-width:1040px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .o4 .r{background:#fbf7ec;color:var(--navy);padding:22px 22px 30px;position:relative;box-shadow:0 6px 14px rgba(0,0,0,.25);font-family:'Space Mono',monospace}
+  .o4 .r::before,.o4 .r::after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 6px -2px,transparent 6px,#fbf7ec 6px);background-size:14px 10px}
+  .o4 .r::before{top:-9px;transform:rotate(180deg)}.o4 .r::after{bottom:-9px}
+  .o4 .meta{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8a8270;border-bottom:1px dashed #bbb;padding-bottom:10px;margin-bottom:12px;display:flex;justify-content:space-between}
+  .o4 .q{font-family:'Bitter',serif;font-size:15px;line-height:1.6;margin:0 0 14px}
+  .o4 .n{font-weight:700;font-size:12px;letter-spacing:.08em}
+  .o4 .tot{border-top:1px dashed #bbb;margin-top:12px;padding-top:10px;font-size:11px;display:flex;justify-content:space-between;color:var(--red)}
+
+  /* O5 Pinned Notes */
+  .o5{background:var(--cream2);padding-bottom:54px;background-image:radial-gradient(circle at 20% 10%,rgba(92,64,51,.06),transparent 40%)}
+  .o5 .head .k{color:var(--red)}.o5 .head h2{color:var(--navy)}
+  .o5 .board{max-width:1040px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap;gap:26px;justify-content:center}
+  .o5 .note{position:relative;width:280px;background:#fff;padding:22px 22px 26px;box-shadow:3px 5px 12px rgba(0,0,0,.2)}
+  .o5 .note:nth-child(3n){transform:rotate(-2.4deg)}.o5 .note:nth-child(3n+1){transform:rotate(1.8deg)}.o5 .note:nth-child(3n+2){transform:rotate(-1deg)}
+  .o5 .note::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:var(--red);box-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .o5 .q{font-family:'Rye',serif;font-size:17px;line-height:1.5;color:var(--navy)}
+  .o5 .n{font-family:'Bitter',serif;font-weight:700;font-size:13px;color:var(--red);margin-top:14px;text-transform:uppercase;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 05</div>
+    <h1>Stimmen — 5 Optionen</h1>
+    <p>5-Sterne-Bewertungen. Opt. 02 = Auto-Lauftext (Hover pausiert), Opt. 03 = rotierendes Featured-Zitat (Punkte klicken). Sag mir die Nummer.</p>
+  </div>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Card Trio</span><span class="opt-tag">der Prototyp, veredelt</span></div>
+    <p class="opt-desc">Creme-Karten auf Marine, Gold-Sterne, kursives Zitat, Rye-roter Name. Klar &amp; vertrauensvoll. <b>Motion:</b> Karten erscheinen gestaffelt.</p>
+    <div class="frame"><div class="o1">
+      <div class="head"><div class="k">// 03 — Stimmen</div><h2>Was die Leute sagen</h2></div>
+      <div class="grid" id="g1"></div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Marquee Wall</span><span class="opt-tag">endlos laufend · Hover pausiert</span></div>
+    <p class="opt-desc">Bewertungen <b>laufen endlos</b> horizontal vorbei, <b>Hover pausiert</b>. Zeigt viele Stimmen auf wenig Raum, dynamisch. <b>Probier's:</b> drüberfahren zum Anhalten.</p>
+    <div class="frame"><div class="o2" id="o2">
+      <div class="head"><div class="k">// 03 — Stimmen</div><h2>Was die Leute sagen</h2></div>
+      <div class="track" id="g2"></div>
+      <div class="hint">↔ läuft automatisch · Hover pausiert</div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Featured Quote</span><span class="opt-tag">großes rotierendes Zitat · Punkte-Nav</span></div>
+    <p class="opt-desc">Ein <b>großes Zitat</b> im Fokus, <b>rotiert automatisch</b> alle paar Sekunden, Punkte zum Springen. Redaktionell, ruhig, edel. <b>Probier's:</b> Punkte klicken.</p>
+    <div class="frame"><div class="o3">
+      <div class="head"><div class="k">// 03 — Stimmen</div><h2>Was die Leute sagen</h2></div>
+      <div class="stage"><div class="stars" id="s3">★★★★★</div><div class="big" id="big3"></div><div class="who" id="who3"></div><div class="dots" id="dots3"></div></div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Stamped Receipts</span><span class="opt-tag">Vintage-Bon · perforiert · monospace</span></div>
+    <p class="opt-desc">Jede Bewertung als <b>Kassenbon/Ticket</b> mit perforierten Rändern &amp; Monospace-Meta. Witzig, old-school, unverwechselbar. <b>Motion:</b> Reveal beim Scroll.</p>
+    <div class="frame"><div class="o4">
+      <div class="head"><div class="k">// 03 — Stimmen</div><h2>Frisch gestochen</h2></div>
+      <div class="grid" id="g4"></div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Pinned Notes</span><span class="opt-tag">angepinnte handschriftliche Zettel</span></div>
+    <p class="opt-desc">Stimmen als <b>handschriftliche Zettel</b> (Rye) an die Wand gepinnt, leicht schräg — wie echte Kundennotizen im Studio. <b>Motion:</b> sanftes Aufrichten beim Hover.</p>
+    <div class="frame"><div class="o5">
+      <div class="head"><div class="k">// 03 — Stimmen</div><h2>Von der Wand</h2></div>
+      <div class="board" id="g5"></div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+  const T = [
+    {q:'Genau die kräftigen Linien, die ich wollte. Sieht nach vier Jahren aus wie frisch gestochen.', n:'Jonas K. · Münster'},
+    {q:'Ehrliches Handwerk, kein Schnickschnack. Mac hat sich richtig Zeit für den Entwurf genommen.', n:'Sina M. · Telgte'},
+    {q:'Bestes Old-School-Studio in Münster. Die Flash-Wand ist der Wahnsinn, da findet jeder was.', n:'Tobias R. · Greven'},
+    {q:'Saubere Arbeit, faire Preise, super Beratung. Komm definitiv für mein nächstes wieder.', n:'Mareike P. · Münster'},
+    {q:'Vom Walk-in zum Lieblingsstudio. Greta hat meine Idee perfekt umgesetzt.', n:'Dennis L. · Osnabrück'},
+  ];
+  document.getElementById('g1').innerHTML = T.slice(0,3).map(t=>`<div class="c"><div class="stars">★★★★★</div><p class="q">„${t.q}"</p><div class="n">${t.n}</div></div>`).join('');
+  const card2 = t=>`<div class="c"><div class="stars">★★★★★</div><p class="q">„${t.q}"</p><div class="n">${t.n}</div></div>`;
+  document.getElementById('g2').innerHTML = (T.map(card2).join('')) + (T.map(card2).join(''));
+  document.getElementById('g4').innerHTML = T.slice(0,3).map((t,i)=>`<div class="r"><div class="meta"><span>A&D · Bon #00${i+1}</span><span class="stars" style="font-size:11px">★★★★★</span></div><p class="q">„${t.q}"</p><div class="n">${t.n}</div><div class="tot"><span>Zufriedenheit</span><span>100%</span></div></div>`).join('');
+  document.getElementById('g5').innerHTML = T.map(t=>`<div class="note"><p class="q">„${t.q}"</p><div class="n">— ${t.n}</div></div>`).join('');
+
+  // O3 rotating
+  let i3=0; const big=document.getElementById('big3'),who=document.getElementById('who3'),dots=document.getElementById('dots3');
+  dots.innerHTML=T.map((_,i)=>`<button data-i="${i}"></button>`).join('');
+  const render3=()=>{big.style.opacity=0;setTimeout(()=>{big.textContent='„'+T[i3].q+'"';who.textContent=T[i3].n;big.style.opacity=1;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===i3));},250);};
+  dots.querySelectorAll('button').forEach(b=>b.onclick=()=>{i3=+b.dataset.i;render3();});
+  render3(); setInterval(()=>{i3=(i3+1)%T.length;render3();},4000);
+</script>
+</body>
+</html>
