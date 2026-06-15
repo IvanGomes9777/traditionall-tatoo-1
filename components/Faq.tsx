@@ -87,7 +87,10 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-cream px-5 py-[90px] sm:px-10">
+    <section
+      id="faq"
+      className="flex min-h-[100dvh] flex-col justify-center bg-cream px-5 py-[90px] sm:px-10"
+    >
       <div className="mx-auto max-w-[760px]">
         <div className="mb-11 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-red">

@@ -71,7 +71,7 @@ export default function Stimmen() {
   return (
     <section
       id="stimmen"
-      className="bg-cream2 px-5 py-[90px] sm:px-10"
+      className="flex min-h-[100dvh] flex-col justify-center bg-cream2 px-5 py-[90px] sm:px-10"
       style={{
         backgroundImage:
           'radial-gradient(circle at 20% 10%, rgba(92,64,51,.06), transparent 40%)',

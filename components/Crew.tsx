@@ -141,7 +141,10 @@ export default function Crew() {
   }, []);
 
   return (
-    <section id="crew" className="bg-navy px-5 py-[90px] text-cream sm:px-10">
+    <section
+      id="crew"
+      className="flex min-h-[100dvh] flex-col justify-center bg-navy px-5 py-[90px] text-cream sm:px-10"
+    >
       <div className="mx-auto max-w-shell">
         <div className="mb-12 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">

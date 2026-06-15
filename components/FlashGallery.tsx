@@ -157,7 +157,7 @@ export default function FlashGallery() {
   return (
     <section
       id="flash"
-      className="bg-navy px-5 py-[90px] text-cream sm:px-10"
+      className="flex min-h-[100dvh] flex-col justify-center bg-navy px-5 py-[90px] text-cream sm:px-10"
       style={{
         backgroundImage:
           'repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 3px, transparent 3px 6px), radial-gradient(120% 90% at 50% 0%, rgba(225,161,0,.08), transparent 50%)',
