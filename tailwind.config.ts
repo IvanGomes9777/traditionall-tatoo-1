@@ -49,6 +49,10 @@ const config: Config = {
           '0%,100%': { transform: 'rotate(-1.5deg)' },
           '50%': { transform: 'rotate(1.5deg)' },
         },
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
       },
       animation: {
         marquee: 'marquee 22s linear infinite',
@@ -57,6 +61,7 @@ const config: Config = {
         twinkle: 'twinkle 4s ease-in-out infinite',
         floatUp: 'floatUp 1s ease both',
         swayBanner: 'swayBanner 6s ease-in-out infinite',
+        fadeIn: 'fadeIn .2s ease both',
       },
     },
   },
