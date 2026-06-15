@@ -26,12 +26,12 @@ function FaqItem({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={onToggle}
-          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-body text-[17px] font-bold text-navy"
+          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-body text-[1.0625rem] font-bold text-navy"
         >
           <span>{item.q}</span>
           <span
             aria-hidden="true"
-            className={`shrink-0 text-[22px] text-red transition-transform duration-300 ${
+            className={`shrink-0 text-[1.375rem] text-red transition-transform duration-300 ${
               open ? 'rotate-45' : ''
             }`}
           >
@@ -47,7 +47,7 @@ function FaqItem({
         style={{ gridTemplateRows: open ? '1fr' : '0fr' }}
       >
         <div className="overflow-hidden">
-          <p className="m-0 px-6 pb-[22px] font-body text-[15px] leading-[1.7] text-sepia">
+          <p className="m-0 px-6 pb-[22px] font-body text-[0.9375rem] leading-[1.7] text-sepia">
             {item.a}
           </p>
         </div>
@@ -66,10 +66,10 @@ export default function Faq() {
     >
       <div className="mx-auto max-w-[760px]">
         <Reveal className="mb-11 text-center">
-          <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-red">
+          <p className="mb-3.5 font-mono text-[0.75rem] uppercase tracking-[0.26em] text-red">
             // 04 — Gut zu wissen
           </p>
-          <h2 className="m-0 font-display text-[clamp(34px,4.4vw,54px)] uppercase leading-none text-navy">
+          <h2 className="m-0 font-display text-[clamp(2.125rem,4.4vw,3.375rem)] uppercase leading-none text-navy">
             Häufige Fragen
           </h2>
         </Reveal>
@@ -85,7 +85,7 @@ export default function Faq() {
           </Reveal>
         ))}
 
-        <p className="mt-8 text-center font-body text-[15px] text-sepia">
+        <p className="mt-8 text-center font-body text-[0.9375rem] text-sepia">
           Noch eine Frage offen?{' '}
           <a
             href="#kontakt"

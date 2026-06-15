@@ -28,7 +28,7 @@ function Star({ className = '' }: { className?: string }) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-block text-red text-[11px] motion-safe:animate-spinStar ${className}`}
+      className={`inline-block text-red text-[0.6875rem] motion-safe:animate-spinStar ${className}`}
     >
       ★
     </span>
@@ -57,7 +57,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 motion-safe:animate-drop">
       {/* Utility bar */}
-      <div className="bg-navy text-gold font-mono text-[11px] tracking-[0.14em] uppercase">
+      <div className="bg-navy text-gold font-mono text-[0.6875rem] tracking-[0.14em] uppercase">
         <div className="mx-auto flex max-w-shell items-center justify-between gap-3 px-5 py-[7px] sm:px-8">
           <span>Di–Sa · 11–19 Uhr</span>
           <span className="hidden sm:inline">
@@ -86,7 +86,7 @@ export default function Navbar() {
                 {i > 0 && <Star className="px-1" />}
                 <a
                   href={l.href}
-                  className="px-3 font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-navy transition-colors hover:text-red"
+                  className="px-3 font-body text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-navy transition-colors hover:text-red"
                 >
                   {l.label}
                 </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
           {/* logo */}
           <a
             href="#top"
-            className="flex shrink-0 items-center gap-2 font-display text-[20px] uppercase text-navy"
+            className="flex shrink-0 items-center gap-2 font-display text-[1.25rem] uppercase text-navy"
           >
             <span aria-hidden="true">⚓</span> Anker &amp; Dolch
           </a>
@@ -109,7 +109,7 @@ export default function Navbar() {
                 {i > 0 && <Star className="px-1" />}
                 <a
                   href={l.href}
-                  className="px-3 font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-navy transition-colors hover:text-red"
+                  className="px-3 font-body text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-navy transition-colors hover:text-red"
                 >
                   {l.label}
                 </a>
@@ -117,7 +117,7 @@ export default function Navbar() {
             ))}
             <a
               href="#kontakt"
-              className="ml-3 bg-red px-4 py-2.5 font-body text-[12px] font-bold uppercase tracking-[0.12em] text-cream shadow-[3px_3px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_#1B2A4A]"
+              className="ml-3 bg-red px-4 py-2.5 font-body text-[0.75rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[3px_3px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_#1B2A4A]"
             >
               Termin&nbsp;★
             </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
-            className="flex min-h-[44px] items-center gap-2 font-mono text-[12px] uppercase tracking-[0.14em] text-navy md:hidden"
+            className="flex min-h-[44px] items-center gap-2 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-navy md:hidden"
             aria-label="Menü öffnen"
             aria-expanded={menuOpen}
           >
@@ -158,10 +158,10 @@ export default function Navbar() {
               {Array.from({ length: TICKER_REPEAT }).flatMap((_, r) =>
                 TICKER_ITEMS.map((item) => (
                   <span key={`${r}-${item}`} className="flex items-center">
-                    <span className="whitespace-nowrap px-6 font-script text-[16px] text-cream">
+                    <span className="whitespace-nowrap px-6 font-script text-[1rem] text-cream">
                       {item}
                     </span>
-                    <span className="text-[16px] text-navy">★</span>
+                    <span className="text-[1rem] text-navy">★</span>
                   </span>
                 )),
               )}
@@ -182,7 +182,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen(false)}
-          className="absolute right-6 top-6 font-mono text-[12px] uppercase tracking-[0.14em] text-gold"
+          className="absolute right-6 top-6 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-gold"
           aria-label="Menü schließen"
         >
           ✕ Schließen
@@ -192,7 +192,7 @@ export default function Navbar() {
             key={l.href}
             href={l.href}
             onClick={() => setMenuOpen(false)}
-            className="font-display text-[26px] uppercase text-cream transition-colors hover:text-gold"
+            className="font-display text-[1.625rem] uppercase text-cream transition-colors hover:text-gold"
           >
             {l.label}
           </a>
@@ -200,7 +200,7 @@ export default function Navbar() {
         <a
           href="#kontakt"
           onClick={() => setMenuOpen(false)}
-          className="mt-2 bg-red px-7 py-3.5 font-body text-[14px] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#C9A86A]"
+          className="mt-2 bg-red px-7 py-3.5 font-body text-[0.875rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#C9A86A]"
         >
           ★ Termin buchen ★
         </a>

@@ -43,11 +43,11 @@ export default function MapEmbed() {
       <button
         type="button"
         onClick={() => writeConsent(true)}
-        className="bg-navy px-5 py-3 font-body text-[12px] font-bold uppercase tracking-[0.1em] text-cream shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
+        className="bg-navy px-5 py-3 font-body text-[0.75rem] font-bold uppercase tracking-[0.1em] text-cream shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
       >
         Karte laden
       </button>
-      <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-sepia/70">
+      <span className="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-sepia/70">
         Hafenweg 14 · 48155 Münster
       </span>
     </div>

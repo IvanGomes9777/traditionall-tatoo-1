@@ -41,10 +41,10 @@ export default function CookieConsent() {
       <div className="mx-auto max-w-shell">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
-            <p className="font-display text-[15px] uppercase tracking-wide text-gold">
+            <p className="font-display text-[0.9375rem] uppercase tracking-wide text-gold">
               Cookies &amp; Datenschutz
             </p>
-            <p className="mt-1.5 font-body text-[13px] leading-relaxed text-cream/80">
+            <p className="mt-1.5 font-body text-[0.8125rem] leading-relaxed text-cream/80">
               Wir verwenden nur technisch notwendige Cookies (z. B. zum Schutz des
               Formulars). Externe Inhalte wie <strong className="text-cream">Google Maps</strong>{' '}
               laden wir erst mit deiner Einwilligung. Mehr in der{' '}
@@ -55,10 +55,10 @@ export default function CookieConsent() {
             </p>
 
             {details && (
-              <div className="mt-3 space-y-2 border-t border-cream/15 pt-3 font-body text-[13px]">
+              <div className="mt-3 space-y-2 border-t border-cream/15 pt-3 font-body text-[0.8125rem]">
                 <div className="flex items-center justify-between gap-4">
                   <span>Notwendig (CSRF, Sicherheit)</span>
-                  <span className="font-mono text-[11px] uppercase tracking-wide text-cream/50">
+                  <span className="font-mono text-[0.6875rem] uppercase tracking-wide text-cream/50">
                     immer aktiv
                   </span>
                 </div>
@@ -80,7 +80,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => setDetails(true)}
-                className="font-mono text-[11px] uppercase tracking-[0.1em] text-cream/70 underline-offset-2 hover:text-cream hover:underline"
+                className="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-cream/70 underline-offset-2 hover:text-cream hover:underline"
               >
                 Einstellungen
               </button>
@@ -88,7 +88,7 @@ export default function CookieConsent() {
             <button
               type="button"
               onClick={() => decide(false)}
-              className="border-2 border-cream/40 px-5 py-2.5 font-body text-[12px] font-bold uppercase tracking-[0.1em] text-cream transition-colors hover:border-cream"
+              className="border-2 border-cream/40 px-5 py-2.5 font-body text-[0.75rem] font-bold uppercase tracking-[0.1em] text-cream transition-colors hover:border-cream"
             >
               Nur notwendige
             </button>
@@ -96,7 +96,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => decide(maps)}
-                className="bg-gold px-5 py-2.5 font-body text-[12px] font-bold uppercase tracking-[0.1em] text-navy shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
+                className="bg-gold px-5 py-2.5 font-body text-[0.75rem] font-bold uppercase tracking-[0.1em] text-navy shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
               >
                 Auswahl speichern
               </button>
@@ -104,7 +104,7 @@ export default function CookieConsent() {
               <button
                 type="button"
                 onClick={() => decide(true)}
-                className="bg-gold px-5 py-2.5 font-body text-[12px] font-bold uppercase tracking-[0.1em] text-navy shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
+                className="bg-gold px-5 py-2.5 font-body text-[0.75rem] font-bold uppercase tracking-[0.1em] text-navy shadow-[3px_3px_0_#C1272D] transition-transform hover:-translate-x-px hover:-translate-y-px"
               >
                 Alle akzeptieren
               </button>

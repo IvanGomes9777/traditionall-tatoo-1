@@ -54,7 +54,7 @@ export default function Hero() {
           <span
             key={pos}
             aria-hidden="true"
-            className={`pointer-events-none absolute text-[19px] text-red motion-safe:animate-twinkle ${pos}`}
+            className={`pointer-events-none absolute text-[1.1875rem] text-red motion-safe:animate-twinkle ${pos}`}
             style={{ animationDelay: `${i * 0.6}s` }}
           >
             ★
@@ -73,15 +73,15 @@ export default function Hero() {
 
           {/* center text */}
           <div className="order-1 max-w-[600px] flex-1 text-center motion-safe:animate-floatUp md:order-2">
-            <p className="mb-2.5 font-script text-[17px] text-red">
+            <p className="mb-2.5 font-script text-[1.0625rem] text-red">
               ~ Münster · Old-School seit 2012 ~
             </p>
-            <h1 className="m-0 font-display text-[clamp(46px,6.4vw,78px)] uppercase leading-[0.95] text-navy [text-wrap:balance]">
+            <h1 className="m-0 font-display text-[clamp(2.875rem,6.4vw,4.875rem)] uppercase leading-[0.95] text-navy [text-wrap:balance]">
               Traditional
               <br />
               Tattoos
             </h1>
-            <p className="mt-[18px] inline-block bg-red px-7 py-[7px] font-script text-[clamp(20px,2.6vw,30px)] text-cream shadow-[4px_4px_0_#1B2A4A] motion-safe:animate-swayBanner">
+            <p className="mt-[18px] inline-block bg-red px-7 py-[7px] font-script text-[clamp(1.25rem,2.6vw,1.875rem)] text-cream shadow-[4px_4px_0_#1B2A4A] motion-safe:animate-swayBanner">
               — Done Right —
             </p>
             <p className="mx-auto mb-[30px] mt-[26px] max-w-[430px] font-body text-base leading-[1.7] text-sepia">
@@ -114,7 +114,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="relative mt-10 text-right font-mono text-[11px] tracking-[0.12em] text-navy/45 sm:absolute sm:bottom-6 sm:right-6 sm:mt-0">
+        <div className="relative mt-10 text-right font-mono text-[0.6875rem] tracking-[0.12em] text-navy/45 sm:absolute sm:bottom-6 sm:right-6 sm:mt-0">
           // 4 künstler · walk-ins · bold &amp; true
         </div>
       </div>
@@ -125,10 +125,10 @@ export default function Hero() {
         aria-label="Nach unten scrollen"
         className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 text-navy/70 transition-colors hover:text-red sm:flex"
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.22em]">
           Scrollen
         </span>
-        <span aria-hidden="true" className="text-[18px] motion-safe:animate-nudge">
+        <span aria-hidden="true" className="text-[1.125rem] motion-safe:animate-nudge">
           ↓
         </span>
       </a>

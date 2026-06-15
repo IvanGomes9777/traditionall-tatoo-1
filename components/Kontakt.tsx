@@ -14,13 +14,13 @@ const HOURS = [
 ] as const;
 
 const labelCls =
-  'mb-1.5 block font-mono text-[10px] uppercase tracking-[0.12em] text-sepia';
+  'mb-1.5 block font-mono text-[0.625rem] uppercase tracking-[0.12em] text-sepia';
 const inputCls =
   'w-full border-2 border-navy bg-white px-3.5 py-2.5 font-body text-sm text-navy outline-none transition-shadow focus:shadow-[3px_3px_0_#C1272D]';
 
 function FieldError({ msg }: { msg?: string }) {
   if (!msg) return null;
-  return <p className="mt-1 font-body text-[12px] font-semibold text-red">{msg}</p>;
+  return <p className="mt-1 font-body text-[0.75rem] font-semibold text-red">{msg}</p>;
 }
 
 export default function Kontakt() {
@@ -44,10 +44,10 @@ export default function Kontakt() {
     >
       <div className="mx-auto max-w-shell">
         <Reveal className="mb-12 text-center">
-          <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">
+          <p className="mb-3.5 font-mono text-[0.75rem] uppercase tracking-[0.26em] text-gold">
             // 05 — Komm vorbei
           </p>
-          <h2 className="m-0 font-display text-[clamp(36px,4.6vw,58px)] uppercase leading-none">
+          <h2 className="m-0 font-display text-[clamp(2.25rem,4.6vw,3.625rem)] uppercase leading-none">
             Am Hafen, Münster
           </h2>
         </Reveal>
@@ -55,11 +55,11 @@ export default function Kontakt() {
         <Reveal delay={80} className="grid gap-7 md:grid-cols-2">
           {/* info card */}
           <div className="border-2 border-gold bg-cream p-8 text-navy">
-            <div className="mb-5 font-script text-[22px] text-red">
+            <div className="mb-5 font-script text-[1.375rem] text-red">
               Anker &amp; Dolch Tattoo
             </div>
 
-            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#9a8c6a]">
+            <p className="mb-1.5 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-[#9a8c6a]">
               Adresse
             </p>
             <p className="mb-5 font-body text-base leading-[1.6]">
@@ -68,7 +68,7 @@ export default function Kontakt() {
               48155 Münster
             </p>
 
-            <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[#9a8c6a]">
+            <p className="mb-2 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-[#9a8c6a]">
               Öffnungszeiten
             </p>
             <div className="mb-5">
@@ -83,7 +83,7 @@ export default function Kontakt() {
               ))}
             </div>
 
-            <p className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#9a8c6a]">
+            <p className="mb-1.5 font-mono text-[0.625rem] uppercase tracking-[0.18em] text-[#9a8c6a]">
               Kontakt
             </p>
             <p className="font-body text-base leading-[1.7]">
@@ -114,7 +114,7 @@ export default function Kontakt() {
 
         {/* inquiry form */}
         <Reveal delay={120} className="mt-7 border-2 border-gold bg-cream p-8 text-navy">
-          <div className="mb-5 font-script text-[22px] text-red">
+          <div className="mb-5 font-script text-[1.375rem] text-red">
             Schick uns deine Idee
           </div>
 
@@ -124,7 +124,7 @@ export default function Kontakt() {
                 ★
               </span>
               <p className="max-w-md font-body text-lg text-navy">{state.message}</p>
-              <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-sepia/70">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-sepia/70">
                 Bis bald am Hafen.
               </p>
             </div>
@@ -208,7 +208,7 @@ export default function Kontakt() {
                 <FieldError msg={err.idea} />
               </div>
 
-              <label className="mt-4 flex items-start gap-2.5 font-body text-[12px] leading-[1.5] text-sepia">
+              <label className="mt-4 flex items-start gap-2.5 font-body text-[0.75rem] leading-[1.5] text-sepia">
                 <input type="checkbox" name="consent" className="mt-0.5 shrink-0" />
                 <span>
                   Ich habe die{' '}
@@ -229,7 +229,7 @@ export default function Kontakt() {
                 {pending ? 'Wird gesendet …' : '★ Anfrage senden ★'}
               </button>
 
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.1em] text-sepia/70">
+              <p className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-sepia/70">
                 🔒 Sichere Übertragung · CSRF-Schutz · Spam-Filter · tätowiert ab 18 Jahren
               </p>
             </form>

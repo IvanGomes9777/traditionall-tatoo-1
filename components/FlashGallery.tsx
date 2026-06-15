@@ -100,7 +100,7 @@ function Placeholder({ label }: { label: string }) {
           'repeating-linear-gradient(45deg, rgba(27,42,74,.08) 0 7px, transparent 7px 14px), #ece3cd',
       }}
     >
-      <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#9a8c6a]">
+      <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-[#9a8c6a]">
         {label}
       </span>
     </div>
@@ -167,10 +167,10 @@ export default function FlashGallery() {
       <div className="mx-auto max-w-shell">
         {/* header */}
         <Reveal className="mb-9 text-center">
-          <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">
+          <p className="mb-3.5 font-mono text-[0.75rem] uppercase tracking-[0.26em] text-gold">
             // 01 — Die Flash-Wand
           </p>
-          <h2 className="m-0 font-display text-[clamp(36px,4.6vw,58px)] uppercase leading-none">
+          <h2 className="m-0 font-display text-[clamp(2.25rem,4.6vw,3.625rem)] uppercase leading-none">
             Direkt von der Wand
           </h2>
           <p className="mx-auto mt-[18px] max-w-[460px] font-body text-base text-gold">
@@ -189,7 +189,7 @@ export default function FlashGallery() {
                 type="button"
                 onClick={() => setFilter(f.value)}
                 aria-pressed={isActive}
-                className={`inline-flex min-h-[44px] items-center border-2 border-gold px-4 font-body text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 ${
+                className={`inline-flex min-h-[44px] items-center border-2 border-gold px-4 font-body text-[0.75rem] font-semibold uppercase tracking-[0.08em] transition-colors duration-200 ${
                   isActive
                     ? 'bg-gold text-navy'
                     : 'bg-transparent text-cream hover:bg-gold hover:text-navy'
@@ -229,7 +229,7 @@ export default function FlashGallery() {
                   <Placeholder label={m.name} />
                 )}
               </div>
-              <span className="block pt-2 text-center font-script text-[16px] text-red">
+              <span className="block pt-2 text-center font-script text-[1rem] text-red">
                 {m.name}
               </span>
             </button>
@@ -258,7 +258,7 @@ export default function FlashGallery() {
           <button
             type="button"
             onClick={() => setActive(null)}
-            className="absolute right-6 top-5 font-mono text-[13px] uppercase tracking-[0.1em] text-gold"
+            className="absolute right-6 top-5 font-mono text-[0.8125rem] uppercase tracking-[0.1em] text-gold"
             aria-label="Schließen"
           >
             ✕ Schließen
@@ -280,16 +280,16 @@ export default function FlashGallery() {
                 <Placeholder label={active.name} />
               )}
             </div>
-            <h3 className="mt-3 font-script text-[22px] text-red">
+            <h3 className="mt-3 font-script text-[1.375rem] text-red">
               {active.name}
             </h3>
-            <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-sepia">
+            <p className="mt-1 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-sepia">
               {active.style} · {active.duration} · {active.price}
             </p>
             <a
               href="#kontakt"
               onClick={() => setActive(null)}
-              className="mt-4 inline-block bg-navy px-6 py-3 font-body text-[13px] font-bold uppercase tracking-[0.1em] text-cream shadow-[3px_3px_0_#C1272D] transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
+              className="mt-4 inline-block bg-navy px-6 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.1em] text-cream shadow-[3px_3px_0_#C1272D] transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
             >
               ★ Ähnliches anfragen ★
             </a>

@@ -14,7 +14,7 @@ export default function Footer() {
     <footer>
       {/* CTA band */}
       <div className="bg-red px-6 py-12 text-center text-cream sm:py-14">
-        <h2 className="m-0 font-display text-[clamp(26px,3.4vw,40px)] uppercase leading-none">
+        <h2 className="m-0 font-display text-[clamp(1.625rem,3.4vw,2.5rem)] uppercase leading-none">
           Bereit für echtes Handwerk?
         </h2>
         <p className="mx-auto mt-4 max-w-md font-body text-base text-cream/85">
@@ -35,13 +35,13 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-between gap-6 border-b border-cream/15 pb-7">
             <Link
               href="/#top"
-              className="flex items-center gap-2.5 font-script text-[22px]"
+              className="flex items-center gap-2.5 font-script text-[1.375rem]"
             >
               <span aria-hidden="true">⚓</span> Anker &amp; Dolch
             </Link>
             <nav
               aria-label="Footer-Navigation"
-              className="flex flex-wrap gap-x-6 gap-y-2 font-body text-[13px] font-semibold uppercase tracking-[0.08em]"
+              className="flex flex-wrap gap-x-6 gap-y-2 font-body text-[0.8125rem] font-semibold uppercase tracking-[0.08em]"
             >
               {NAV.map((l) => (
                 <Link key={l.href} href={l.href} className="transition-colors hover:text-gold">
@@ -51,7 +51,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 font-mono text-[11px] tracking-[0.1em] text-cream/55">
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 font-mono text-[0.6875rem] tracking-[0.1em] text-cream/55">
             <span>
               © {new Date().getFullYear()} Anker &amp; Dolch Tattoo · Bold &amp;
               true since 2012 · Tätowiert ab 18

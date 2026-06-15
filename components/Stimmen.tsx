@@ -80,10 +80,10 @@ export default function Stimmen() {
     >
       <div className="mx-auto max-w-shell">
         <Reveal className="mb-12 text-center">
-          <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-red">
+          <p className="mb-3.5 font-mono text-[0.75rem] uppercase tracking-[0.26em] text-red">
             // 03 — Stimmen
           </p>
-          <h2 className="m-0 font-display text-[clamp(34px,4.4vw,54px)] uppercase leading-none text-navy">
+          <h2 className="m-0 font-display text-[clamp(2.125rem,4.4vw,3.375rem)] uppercase leading-none text-navy">
             Von der Wand
           </h2>
           <p className="mx-auto mt-[18px] max-w-[460px] font-body text-base text-sepia">
@@ -112,13 +112,13 @@ export default function Stimmen() {
                   aria-hidden="true"
                   className="absolute -top-[9px] left-1/2 h-4 w-4 -translate-x-1/2 rounded-full bg-red shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
                 />
-                <span aria-hidden="true" className="text-[15px] tracking-[3px] text-gold">
+                <span aria-hidden="true" className="text-[0.9375rem] tracking-[3px] text-gold">
                   ★★★★★
                 </span>
-                <blockquote className="m-0 mt-2.5 font-script text-[17px] leading-[1.5] text-navy">
+                <blockquote className="m-0 mt-2.5 font-script text-[1.0625rem] leading-[1.5] text-navy">
                   „{v.quote}"
                 </blockquote>
-                <figcaption className="mt-3.5 font-body text-[13px] font-bold uppercase tracking-[0.06em] text-red">
+                <figcaption className="mt-3.5 font-body text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-red">
                   — {v.name}
                 </figcaption>
               </figure>
@@ -142,7 +142,7 @@ export default function Stimmen() {
               ★
             </span>
           </a>
-          <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-sepia/70">
+          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-sepia/70">
             Warst du schon bei uns? Wir freuen uns über dein Feedback.
           </p>
         </div>
