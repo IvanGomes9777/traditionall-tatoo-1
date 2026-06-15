@@ -21,11 +21,13 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https://images.unsplash.com",
-              "frame-src https://www.google.com https://maps.google.com",
+              // 'vercel.live' powers the preview-only feedback/comments toolbar
+              "script-src 'self' 'unsafe-inline' https://vercel.live",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://vercel.live",
+              "font-src 'self' https://fonts.gstatic.com https://vercel.live",
+              "img-src 'self' data: blob: https://images.unsplash.com https://vercel.live https://vercel.com",
+              "connect-src 'self' https://vercel.live wss://*.pusher.com https://*.pusher.com",
+              "frame-src https://www.google.com https://maps.google.com https://vercel.live",
             ].join('; '),
           },
           { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' },
