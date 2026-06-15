@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Alfa_Slab_One, Rye, Bitter, Space_Mono } from 'next/font/google';
 import './globals.css';
+import CookieConsent from '@/components/CookieConsent';
 
 const alfa = Alfa_Slab_One({
   weight: '400',
@@ -108,6 +109,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

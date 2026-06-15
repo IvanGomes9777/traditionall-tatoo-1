@@ -33,6 +33,29 @@
   }
 }
 
+/* Long-form legal text */
+.legal-prose {
+  @apply font-body text-[15px] leading-[1.75] text-sepia;
+}
+.legal-prose h2 {
+  @apply mb-3 mt-10 font-display text-[22px] uppercase leading-tight text-navy;
+}
+.legal-prose h3 {
+  @apply mb-2 mt-6 font-body text-[16px] font-bold text-navy;
+}
+.legal-prose p {
+  @apply mb-4;
+}
+.legal-prose ul {
+  @apply mb-4 list-disc space-y-1 pl-6;
+}
+.legal-prose a {
+  @apply font-semibold text-red underline-offset-2 hover:underline;
+}
+.legal-prose strong {
+  @apply font-bold text-navy;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

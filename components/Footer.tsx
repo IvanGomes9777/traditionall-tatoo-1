@@ -2,11 +2,11 @@ import Link from 'next/link';
 import CookieSettingsButton from '@/components/CookieSettingsButton';
 
 const NAV = [
-  { label: 'Flash', href: '#flash' },
-  { label: 'Crew', href: '#crew' },
-  { label: 'Stimmen', href: '#stimmen' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Kontakt', href: '#kontakt' },
+  { label: 'Flash', href: '/#flash' },
+  { label: 'Crew', href: '/#crew' },
+  { label: 'Stimmen', href: '/#stimmen' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Kontakt', href: '/#kontakt' },
 ];
 
 export default function Footer() {
@@ -21,32 +21,32 @@ export default function Footer() {
           Schreib uns deine Idee — oder komm Freitag &amp; Samstag zum Walk-in
           vorbei.
         </p>
-        <a
-          href="#kontakt"
+        <Link
+          href="/#kontakt"
           className="mt-6 inline-block bg-cream px-9 py-4 font-body text-sm font-bold uppercase tracking-[0.1em] text-navy shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#1B2A4A]"
         >
           ★ Termin anfragen ★
-        </a>
+        </Link>
       </div>
 
       {/* footer bar */}
       <div className="bg-navy-dark px-6 py-9 text-cream sm:px-10">
         <div className="mx-auto max-w-shell">
           <div className="flex flex-wrap items-center justify-between gap-6 border-b border-cream/15 pb-7">
-            <a
-              href="#top"
+            <Link
+              href="/#top"
               className="flex items-center gap-2.5 font-script text-[22px]"
             >
               <span aria-hidden="true">⚓</span> Anker &amp; Dolch
-            </a>
+            </Link>
             <nav
               aria-label="Footer-Navigation"
               className="flex flex-wrap gap-x-6 gap-y-2 font-body text-[13px] font-semibold uppercase tracking-[0.08em]"
             >
               {NAV.map((l) => (
-                <a key={l.href} href={l.href} className="transition-colors hover:text-gold">
+                <Link key={l.href} href={l.href} className="transition-colors hover:text-gold">
                   {l.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

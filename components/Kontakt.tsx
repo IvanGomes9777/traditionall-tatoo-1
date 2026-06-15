@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useState } from 'react';
 import { submitInquiry, issueCsrfToken, type InquiryState } from '@/app/actions/contact';
+import MapEmbed from '@/components/MapEmbed';
 
 const initialState: InquiryState = { status: 'idle' };
 
@@ -104,15 +105,9 @@ export default function Kontakt() {
             </p>
           </div>
 
-          {/* map */}
+          {/* map (loads only after consent) */}
           <div className="border-2 border-gold bg-cream p-[11px]">
-            <iframe
-              title="Karte — Hafenweg, Münster"
-              src="https://www.google.com/maps?q=Hafenweg%2014%2C%2048155%20M%C3%BCnster&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="h-full min-h-[300px] w-full border-0 grayscale-[0.3]"
-            />
+            <MapEmbed />
           </div>
         </div>
 
