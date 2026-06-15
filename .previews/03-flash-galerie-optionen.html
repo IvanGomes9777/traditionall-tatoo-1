@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Flash-Galerie · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .head{text-align:center;padding:42px 20px 26px}
+  .head .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px}
+  .head h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1;margin:0;text-transform:uppercase}
+  .head p{font-family:'Bitter',serif;font-size:15px;max-width:440px;margin:14px auto 0}
+
+  .slot{position:relative;overflow:hidden;background:repeating-linear-gradient(45deg,rgba(27,42,74,.12) 0 8px,transparent 8px 16px),var(--cream2)}
+  .slot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;color:#9a8c6a;text-transform:uppercase}
+  .slot img{position:relative;width:100%;height:100%;object-fit:cover;display:block}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ===== O1 Flash-Wall Grid ===== */
+  .o1{background:radial-gradient(120% 90% at 50% 0,rgba(225,161,0,.08),transparent 50%),var(--navy);color:var(--cream);padding-bottom:54px}
+  .o1 .head .k{color:var(--gold)}
+  .o1 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .o1 .card{background:var(--cream);padding:10px;border:2px solid var(--gold);cursor:pointer;transition:all .22s ease}
+  .o1 .card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:7px 9px 0 rgba(0,0,0,.32)}
+  .o1 .card:nth-child(even):hover{transform:translateY(-6px) rotate(1deg)}
+  .o1 .card .slot{height:150px;border:1px solid var(--red)}
+  .o1 .card .cap{text-align:center;font-family:'Rye',serif;font-size:15px;color:var(--red);padding-top:8px}
+
+  /* ===== O2 Pinned Flash Sheet ===== */
+  .o2{background:var(--cream2);background-image:radial-gradient(circle at 30% 20%,rgba(92,64,51,.06),transparent 40%);padding-bottom:54px}
+  .o2 .head .k{color:var(--red)}.o2 .head h2,.o2 .head{color:var(--navy)}
+  .o2 .wall{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+  .o2 .pin{position:relative;background:#fff;padding:10px 10px 30px;box-shadow:3px 5px 12px rgba(0,0,0,.2);transition:transform .2s}
+  .o2 .pin:nth-child(3n){transform:rotate(-2.2deg)}.o2 .pin:nth-child(3n+1){transform:rotate(1.6deg)}.o2 .pin:nth-child(3n+2){transform:rotate(-.8deg)}
+  .o2 .pin:hover{transform:rotate(0) scale(1.03);z-index:2}
+  .o2 .pin::before{content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .o2 .pin .slot{height:150px}
+  .o2 .pin .cap{position:absolute;bottom:8px;left:0;right:0;text-align:center;font-family:'Rye',serif;font-size:13px;color:var(--navy)}
+
+  /* ===== O3 Filterable + Lightbox ===== */
+  .o3{background:var(--navy);color:var(--cream);padding-bottom:54px}
+  .o3 .head .k{color:var(--gold)}
+  .o3 .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:26px;padding:0 20px}
+  .o3 .filters button{font-family:'Bitter',serif;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);background:transparent;border:2px solid var(--gold);padding:8px 16px;cursor:pointer;transition:all .18s}
+  .o3 .filters button.active,.o3 .filters button:hover{background:var(--gold);color:var(--navy)}
+  .o3 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .o3 .card{cursor:pointer;border:2px solid var(--gold);background:var(--cream);padding:7px;transition:transform .2s}
+  .o3 .card:hover{transform:scale(1.03)}
+  .o3 .card .slot{height:160px}
+  .o3 .card.hide{display:none}
+  .o3 .lb{position:fixed;inset:0;background:rgba(10,16,30,.92);display:none;align-items:center;justify-content:center;z-index:99;padding:24px}
+  .o3 .lb.open{display:flex}
+  .o3 .lb .box{max-width:520px;background:var(--cream);padding:14px;border:3px solid var(--gold);text-align:center;color:var(--navy)}
+  .o3 .lb .slot{height:300px}
+  .o3 .lb .t{font-family:'Rye',serif;font-size:20px;color:var(--red);margin-top:12px}
+  .o3 .lb .m{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#7a6f50;margin-top:4px}
+  .o3 .lb .x{position:absolute;top:18px;right:24px;color:var(--gold);font-family:'Space Mono',monospace;font-size:13px;cursor:pointer}
+
+  /* ===== O4 Framed Gallery Wall ===== */
+  .o4{background:var(--cream);padding-bottom:54px}
+  .o4 .head .k{color:var(--red)}.o4 .head,.o4 .head h2{color:var(--navy)}
+  .o4 .gal{max-width:1040px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .o4 .art{text-align:center}
+  .o4 .fr{position:relative;background:var(--navy);padding:12px;border:3px solid var(--gold);box-shadow:0 6px 0 rgba(27,42,74,.18);transition:transform .2s}
+  .o4 .art:hover .fr{transform:translateY(-4px)}
+  .o4 .fr::after{content:"";position:absolute;inset:6px;border:1px solid rgba(201,168,106,.6);pointer-events:none}
+  .o4 .fr .slot{height:160px}
+  .o4 .plate{display:inline-block;margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:var(--navy);border:1px solid var(--gold);padding:4px 12px}
+
+  /* ===== O5 Filmstrip ===== */
+  .o5{background:var(--navy-d);color:var(--cream);padding-bottom:30px}
+  .o5 .head .k{color:var(--gold)}
+  .o5 .strip{display:flex;gap:16px;overflow-x:auto;padding:6px 32px 26px;scroll-snap-type:x mandatory}
+  .o5 .strip::-webkit-scrollbar{height:8px}.o5 .strip::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+  .o5 .cell{flex:0 0 240px;scroll-snap-align:center;border:2px solid var(--gold);padding:8px;background:#11192e;position:relative;transition:transform .2s}
+  .o5 .cell:hover{transform:translateY(-5px)}
+  .o5 .cell .perf{position:absolute;top:0;bottom:0;width:10px;background-image:radial-gradient(circle,transparent 2px,var(--navy-d) 2.5px);background-size:10px 16px}
+  .o5 .cell .slot{height:200px}
+  .o5 .cell .cap{text-align:center;font-family:'Rye',serif;font-size:15px;color:var(--gold);padding-top:8px}
+  .o5 .hint{text-align:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6f7e9c;text-transform:uppercase;padding-bottom:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 03</div>
+    <h1>Flash-Galerie — 5 Optionen</h1>
+    <p>Die „Flash-Wand" mit echten Traditional-Motiven (Anker, Schwalbe, Rose, Dolch …). Opt. 03 = Filter + Lightbox (klick die Karten!), Opt. 05 = scrollbarer Filmstrip. Sag mir die Nummer, dann bau ich sie in Next.js.</p>
+  </div>
+
+  <!-- O1 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Flash-Wall Grid</span><span class="opt-tag">der Prototyp, veredelt · Hover-Stempel-Versatz</span></div>
+    <p class="opt-desc">Creme-Karten mit rotem Innenrahmen auf Marine-Grund, <b>Hover hebt &amp; kippt</b> die Karte mit Hard-Shadow (Stempel-Look). Sauberes 4er-Raster. <b>Motion:</b> Karten erscheinen gestaffelt beim Scrollen, Hover-Lift.</p>
+    <div class="frame"><div class="o1">
+      <div class="head"><div class="k">// 01 — Die Flash-Wand</div><h2>Direkt von der Wand</h2><p>Vorgezeichnete Klassiker, fertig zum Stechen.</p></div>
+      <div class="grid" id="g1"></div>
+    </div></div>
+  </section>
+
+  <!-- O2 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Pinned Flash Sheet</span><span class="opt-tag">echtes Parlor-Feeling · angepinnt, schräg</span></div>
+    <p class="opt-desc">Wie echte <b>angepinnte Flash-Blätter</b> an der Studiowand: weißes Papier, rote Pin-Nadeln, leichte Zufalls-Rotationen. <b>Hover</b> richtet das Blatt gerade &amp; hebt es hervor. Am authentischsten. <b>Motion:</b> sanftes Aufrichten.</p>
+    <div class="frame"><div class="o2">
+      <div class="head"><div class="k">// 01 — Die Flash-Wand</div><h2>Such dir was aus</h2><p>Wähle direkt von der Wand — oder bring deine eigene Idee mit.</p></div>
+      <div class="wall" id="g2"></div>
+    </div></div>
+  </section>
+
+  <!-- O3 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Filter + Lightbox</span><span class="opt-tag">interaktiv · filterbar · Klick öffnet Detail</span></div>
+    <p class="opt-desc">Wie im Branche-Briefing: <b>Filter-Chips</b> (Maritime, Rosen, Tiere …) reflowen das Raster, <b>Klick öffnet Lightbox</b> mit Motiv-Details. Am funktionalsten. <b>Probier's:</b> Filter klicken &amp; eine Karte öffnen. <b>Motion:</b> Reflow + Lightbox-Fade.</p>
+    <div class="frame"><div class="o3">
+      <div class="head"><div class="k">// 01 — Die Flash-Wand</div><h2>Unsere Motive</h2></div>
+      <div class="filters" id="f3">
+        <button class="active" data-f="all">Alle</button><button data-f="maritime">Maritime ⚓</button><button data-f="rosen">Rosen 🌹</button><button data-f="tiere">Tiere</button><button data-f="dark">Dark 🗡️</button>
+      </div>
+      <div class="grid" id="g3"></div>
+      <div class="lb" id="lb3"><span class="x" onclick="document.getElementById('lb3').classList.remove('open')">✕ Schließen</span>
+        <div class="box"><div class="slot" id="lbslot"><div class="ph">Motiv</div></div><div class="t" id="lbt">Motiv</div><div class="m">Traditional · ca. 2–4 Std · ab 120 €</div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- O4 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Framed Gallery Wall</span><span class="opt-tag">Kunstgalerie · Gold-Doppelrahmen · Messing-Schilder</span></div>
+    <p class="opt-desc">Jedes Motiv im <b>Marine/Gold-Doppelrahmen</b> wie eine gehängte Kunstwand, mit <b>Messing-Namensschild</b>. Hochwertig, kuratiert. <b>Motion:</b> Rahmen heben sich beim Hover, Scroll-Reveal.</p>
+    <div class="frame"><div class="o4">
+      <div class="head"><div class="k">// 01 — Die Flash-Wand</div><h2>Die Sammlung</h2><p>Klassiker, die Tattoo-Geschichte geschrieben haben.</p></div>
+      <div class="gal" id="g4"></div>
+    </div></div>
+  </section>
+
+  <!-- O5 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Filmstrip</span><span class="opt-tag">horizontal scrollbar · Filmrollen-Perforation</span></div>
+    <p class="opt-desc">Horizontaler <b>Filmstreifen</b> mit Perforations-Rand, <b>seitlich scrollbar</b> (Snap). Dynamisch, anders als ein Raster. <b>Probier's:</b> seitlich scrollen/wischen. <b>Motion:</b> Scroll-Snap, Hover-Lift.</p>
+    <div class="frame"><div class="o5">
+      <div class="head"><div class="k">// 01 — Die Flash-Wand</div><h2>Flash-Rolle</h2></div>
+      <div class="strip" id="g5"></div>
+      <div class="hint">← seitlich scrollen / wischen →</div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+  const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=420&q=70`;
+  // verified traditional motifs (real) + placeholders, with category tags
+  const M = [
+    {name:'Flash-Sheet', cat:'rosen',    img:'1521308452854-e037c0062a1e'},
+    {name:'Leuchtturm',  cat:'maritime', img:'1585303390830-874c989ce8f1'},
+    {name:'Dolch & Skull',cat:'dark',    img:'1543244128-30d70d41e2a9'},
+    {name:'Banner-Sleeve',cat:'rosen',   img:'1479767574301-a01c78234a0c'},
+    {name:'Schwalbe & Schlange',cat:'tiere',img:'1601848714157-d845bb5c11ff'},
+    {name:'Full Traditional',cat:'dark',  img:'1759247943688-5d47a84dd615'},
+    {name:'Anker',       cat:'maritime', img:null},
+    {name:'Panther',     cat:'tiere',    img:null},
+  ];
+  const slot = m => {
+    const img = m.img ? `<img alt="${m.name}" src="${U(m.img)}" onerror="this.style.display='none'">` : '';
+    return `<div class="slot"><div class="ph">${m.name}</div>${img}</div>`;
+  };
+
+  // O1 grid
+  document.getElementById('g1').innerHTML = M.map(m=>`<div class="card">${slot(m)}<div class="cap">${m.name}</div></div>`).join('');
+  // O2 pinned
+  document.getElementById('g2').innerHTML = M.map(m=>`<div class="pin">${slot(m)}<div class="cap">${m.name}</div></div>`).join('');
+  // O3 filter + lightbox
+  const g3 = document.getElementById('g3');
+  g3.innerHTML = M.map(m=>`<div class="card" data-cat="${m.cat}" data-name="${m.name}" data-img="${m.img||''}">${slot(m)}</div>`).join('');
+  document.querySelectorAll('#f3 button').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('#f3 button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+    const f=b.dataset.f;
+    g3.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide', f!=='all' && c.dataset.cat!==f));
+  });
+  g3.querySelectorAll('.card').forEach(c=>c.onclick=()=>{
+    const img=c.dataset.img;
+    document.getElementById('lbslot').innerHTML = `<div class="ph">${c.dataset.name}</div>`+(img?`<img style="position:relative;width:100%;height:100%;object-fit:cover" src="${U(img)}" onerror="this.style.display='none'">`:'');
+    document.getElementById('lbt').textContent=c.dataset.name;
+    document.getElementById('lb3').classList.add('open');
+  });
+  // O4 framed
+  document.getElementById('g4').innerHTML = M.map(m=>`<div class="art"><div class="fr">${slot(m)}</div><div class="plate">${m.name}</div></div>`).join('');
+  // O5 filmstrip
+  document.getElementById('g5').innerHTML = M.map(m=>`<div class="cell"><div class="perf" style="left:0"></div><div class="perf" style="right:0"></div>${slot(m)}<div class="cap">${m.name}</div></div>`).join('');
+</script>
+</body>
+</html>
