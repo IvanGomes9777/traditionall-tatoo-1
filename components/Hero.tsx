@@ -41,8 +41,11 @@ function FlashFrame({
 
 export default function Hero() {
   return (
-    <section id="top" className="relative px-5 pt-10 sm:px-10">
-      <div className="relative mx-auto max-w-shell bg-cream px-6 py-14 sm:px-12 sm:py-16">
+    <section
+      id="top"
+      className="relative flex min-h-[100dvh] items-center px-5 py-10 sm:px-10"
+    >
+      <div className="relative mx-auto w-full max-w-shell bg-cream px-6 py-14 sm:px-12 sm:py-16">
         {/* decorative double border */}
         <div className="pointer-events-none absolute inset-0 border-2 border-navy" />
         <div className="pointer-events-none absolute inset-[7px] border border-red/50" />
