@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Reveal from '@/components/Reveal';
 
 type QA = { q: string; a: string };
 
@@ -92,23 +93,24 @@ export default function Faq() {
       className="flex min-h-[100dvh] flex-col justify-center bg-cream px-5 py-[90px] sm:px-10"
     >
       <div className="mx-auto max-w-[760px]">
-        <div className="mb-11 text-center">
+        <Reveal className="mb-11 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-red">
             // 04 — Gut zu wissen
           </p>
           <h2 className="m-0 font-display text-[clamp(34px,4.4vw,54px)] uppercase leading-none text-navy">
             Häufige Fragen
           </h2>
-        </div>
+        </Reveal>
 
         {FAQS.map((item, i) => (
-          <FaqItem
-            key={item.q}
-            item={item}
-            index={i}
-            open={openIndex === i}
-            onToggle={() => setOpenIndex((cur) => (cur === i ? null : i))}
-          />
+          <Reveal key={item.q} delay={i * 70}>
+            <FaqItem
+              item={item}
+              index={i}
+              open={openIndex === i}
+              onToggle={() => setOpenIndex((cur) => (cur === i ? null : i))}
+            />
+          </Reveal>
         ))}
 
         <p className="mt-8 text-center font-body text-[15px] text-sepia">

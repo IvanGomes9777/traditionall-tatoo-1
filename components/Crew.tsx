@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { TATTOO_IMAGES } from '@/lib/images';
+import Reveal from '@/components/Reveal';
 
 type Artist = {
   name: string;
@@ -146,7 +147,7 @@ export default function Crew() {
       className="flex min-h-[100dvh] flex-col justify-center bg-navy px-5 py-[90px] text-cream sm:px-10"
     >
       <div className="mx-auto max-w-shell">
-        <div className="mb-12 text-center">
+        <Reveal className="mb-12 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">
             // 02 — Die Crew
           </p>
@@ -158,7 +159,7 @@ export default function Crew() {
             für die Ewigkeit. Fahr über eine Karte (oder tippe sie an) und sieh
             die Arbeit.
           </p>
-        </div>
+        </Reveal>
 
         <div ref={ref} className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {CREW.map((artist, i) => (

@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useState } from 'react';
 import { submitInquiry, issueCsrfToken, type InquiryState } from '@/app/actions/contact';
 import MapEmbed from '@/components/MapEmbed';
+import Reveal from '@/components/Reveal';
 
 const initialState: InquiryState = { status: 'idle' };
 
@@ -42,16 +43,16 @@ export default function Kontakt() {
       }}
     >
       <div className="mx-auto max-w-shell">
-        <div className="mb-12 text-center">
+        <Reveal className="mb-12 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">
             // 05 — Komm vorbei
           </p>
           <h2 className="m-0 font-display text-[clamp(36px,4.6vw,58px)] uppercase leading-none">
             Am Hafen, Münster
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-7 md:grid-cols-2">
+        <Reveal delay={80} className="grid gap-7 md:grid-cols-2">
           {/* info card */}
           <div className="border-2 border-gold bg-cream p-8 text-navy">
             <div className="mb-5 font-script text-[22px] text-red">
@@ -109,10 +110,10 @@ export default function Kontakt() {
           <div className="border-2 border-gold bg-cream p-[11px]">
             <MapEmbed />
           </div>
-        </div>
+        </Reveal>
 
         {/* inquiry form */}
-        <div className="mt-7 border-2 border-gold bg-cream p-8 text-navy">
+        <Reveal delay={120} className="mt-7 border-2 border-gold bg-cream p-8 text-navy">
           <div className="mb-5 font-script text-[22px] text-red">
             Schick uns deine Idee
           </div>
@@ -233,7 +234,7 @@ export default function Kontakt() {
               </p>
             </form>
           )}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -118,6 +118,20 @@ export default function Hero() {
           // 4 künstler · walk-ins · bold &amp; true
         </div>
       </div>
+
+      {/* scroll hint */}
+      <a
+        href="#flash"
+        aria-label="Nach unten scrollen"
+        className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 text-navy/70 transition-colors hover:text-red sm:flex"
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">
+          Scrollen
+        </span>
+        <span aria-hidden="true" className="text-[18px] motion-safe:animate-nudge">
+          ↓
+        </span>
+      </a>
     </section>
   );
 }

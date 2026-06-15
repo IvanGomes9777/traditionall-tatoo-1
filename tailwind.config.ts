@@ -53,6 +53,10 @@ const config: Config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        nudge: {
+          '0%,100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(7px)' },
+        },
       },
       animation: {
         marquee: 'marquee 22s linear infinite',
@@ -62,6 +66,7 @@ const config: Config = {
         floatUp: 'floatUp 1s ease both',
         swayBanner: 'swayBanner 6s ease-in-out infinite',
         fadeIn: 'fadeIn .2s ease both',
+        nudge: 'nudge 1.8s ease-in-out infinite',
       },
     },
   },

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { TATTOO_IMAGES } from '@/lib/images';
+import Reveal from '@/components/Reveal';
 
 type Category = 'maritime' | 'rosen' | 'tiere' | 'dark';
 
@@ -165,7 +166,7 @@ export default function FlashGallery() {
     >
       <div className="mx-auto max-w-shell">
         {/* header */}
-        <div className="mb-9 text-center">
+        <Reveal className="mb-9 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-gold">
             // 01 — Die Flash-Wand
           </p>
@@ -176,7 +177,7 @@ export default function FlashGallery() {
             Vorgezeichnete Klassiker, fertig zum Stechen. Such dir eins aus —
             oder bring deine eigene Idee mit.
           </p>
-        </div>
+        </Reveal>
 
         {/* filters */}
         <div className="mb-8 flex flex-wrap justify-center gap-2.5">

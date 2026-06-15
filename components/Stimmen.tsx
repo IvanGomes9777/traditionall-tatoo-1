@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Reveal from '@/components/Reveal';
 
 type Voice = { quote: string; name: string };
 
@@ -78,7 +79,7 @@ export default function Stimmen() {
       }}
     >
       <div className="mx-auto max-w-shell">
-        <div className="mb-12 text-center">
+        <Reveal className="mb-12 text-center">
           <p className="mb-3.5 font-mono text-[12px] uppercase tracking-[0.26em] text-red">
             // 03 — Stimmen
           </p>
@@ -88,7 +89,7 @@ export default function Stimmen() {
           <p className="mx-auto mt-[18px] max-w-[460px] font-body text-base text-sepia">
             Echte Worte von echten Kund:innen — angepinnt wie im Studio.
           </p>
-        </div>
+        </Reveal>
 
         <ul
           ref={ref}

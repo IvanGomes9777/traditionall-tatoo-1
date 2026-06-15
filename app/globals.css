@@ -8,6 +8,14 @@
   }
   html {
     scroll-behavior: smooth;
+    /* gentle section-to-section snapping; proximity keeps long sections free */
+    scroll-snap-type: y proximity;
+    /* offset snaps/anchors below the sticky header */
+    scroll-padding-top: 8rem;
+  }
+  /* each full-screen section is a snap point */
+  section[id] {
+    scroll-snap-align: start;
   }
   body {
     margin: 0;
