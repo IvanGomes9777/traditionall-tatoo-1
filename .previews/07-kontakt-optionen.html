@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Kontakt · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:700px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .head{text-align:center;padding:42px 20px 26px}
+  .head .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px;color:var(--gold)}
+  .head h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1;margin:0;text-transform:uppercase;color:var(--cream)}
+
+  /* form atoms */
+  .form .row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .form .row>*{flex:1;min-width:140px}
+  .form label{display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--sepia);margin-bottom:5px}
+  .form .dark label{color:#bcae8a}
+  .form input,.form select,.form textarea{width:100%;font-family:'Bitter',serif;font-size:14px;padding:11px 13px;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:0;outline:none}
+  .form.darkf input,.form.darkf select,.form.darkf textarea{border-color:var(--gold);background:rgba(244,236,216,.06);color:var(--cream)}
+  .form input:focus,.form textarea:focus,.form select:focus{box-shadow:3px 3px 0 var(--red)}
+  .form textarea{min-height:90px;resize:vertical}
+  .form .field{margin-bottom:12px}
+  .hp{position:absolute;left:-9999px}
+  .consent{display:flex;gap:9px;align-items:flex-start;font-family:'Bitter',serif;font-size:12px;color:var(--sepia);margin:6px 0 14px;line-height:1.5}
+  .consent.d{color:#bcae8a}
+  .consent input{width:auto;flex:0 0 auto;margin-top:3px}
+  .btn{font-family:'Bitter',serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--red);padding:15px 30px;border:none;cursor:pointer;box-shadow:4px 4px 0 var(--navy);transition:all .2s}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--navy)}
+  .btn.gold{background:var(--gold);color:var(--navy);box-shadow:4px 4px 0 var(--red)}
+  .lock{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8a8a8a;margin-top:10px}
+
+  .info .ln{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#9a8c6a;margin-bottom:5px}
+  .info .v{font-family:'Bitter',serif;font-size:16px;line-height:1.6;margin-bottom:18px}
+  .hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(27,42,74,.14);font-family:'Bitter',serif;font-size:14px}
+  .mapph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:repeating-linear-gradient(45deg,rgba(27,42,74,.08) 0 9px,transparent 9px 18px),var(--cream2);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9a8c6a;text-transform:uppercase;min-height:100%}
+
+  /* O1 Info + Map + form */
+  .o1{background:var(--navy);padding-bottom:54px}
+  .o1 .box{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .o1 .card{background:var(--cream);border:2px solid var(--gold);padding:30px 28px}
+  .o1 .rye{font-family:'Rye',serif;font-size:22px;color:var(--red);margin-bottom:18px}
+  .o1 .full{grid-column:1/-1}
+
+  /* O2 Form-forward */
+  .o2{background:var(--cream2);padding-bottom:54px}
+  .o2 .head .k{color:var(--red)}.o2 .head h2{color:var(--navy)}
+  .o2 .box{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.3fr .9fr;gap:30px;align-items:start}
+  .o2 .card{background:#fff;border:2px solid var(--navy);padding:28px}
+  .o2 .side{display:flex;flex-direction:column;gap:18px}
+  .o2 .side .blk{background:var(--navy);color:var(--cream);padding:22px}
+  .o2 .side .blk .ln{color:var(--gold)}.o2 .side .blk .v{color:var(--cream)}
+  .o2 .side .hours div{border-color:rgba(244,236,216,.2);color:var(--cream)}
+  .o2 .map{min-height:150px;border:2px solid var(--navy)}
+
+  /* O3 Full form on navy + map band */
+  .o3{background:var(--navy);padding-bottom:0}
+  .o3 .box{max-width:680px;margin:0 auto;padding:0 32px}
+  .o3 .ticket{display:flex;justify-content:center;gap:0;margin-bottom:26px;flex-wrap:wrap}
+  .o3 .ticket div{background:var(--gold);color:var(--navy);font-family:'Bitter',serif;font-weight:700;font-size:13px;padding:9px 18px;border-right:2px dashed var(--navy)}
+  .o3 .ticket div:last-child{border-right:none}
+  .o3 .mapband{min-height:160px;margin-top:40px;border-top:3px solid var(--gold)}
+
+  /* O4 Postcard */
+  .o4{background:#cdbf9c;padding-bottom:54px;background-image:radial-gradient(circle at 30% 20%,rgba(255,255,255,.25),transparent 50%)}
+  .o4 .head .k{color:var(--red)}.o4 .head h2{color:var(--navy)}
+  .o4 .card{max-width:980px;margin:0 auto;background:#fbf7ec;border:1px solid #bbae8c;box-shadow:0 14px 30px rgba(0,0,0,.3);display:grid;grid-template-columns:1fr 1fr}
+  .o4 .left{padding:30px;border-right:2px dashed #c3b696}
+  .o4 .stamp{float:right;width:80px;height:96px;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;font-size:30px;transform:rotate(4deg);color:var(--red)}
+  .o4 .right{padding:30px}
+  .o4 .pre{font-family:'Rye',serif;font-size:20px;color:var(--red);margin-bottom:14px}
+
+  /* O5 Hours-sign + form */
+  .o5{background:var(--cream);padding-bottom:54px}
+  .o5 .head .k{color:var(--red)}.o5 .head h2{color:var(--navy)}
+  .o5 .box{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:start}
+  .o5 .sign{background:var(--navy);color:var(--cream);border:3px double var(--gold);padding:28px;text-align:center}
+  .o5 .sign .big{font-family:'Alfa Slab One',serif;font-size:22px;text-transform:uppercase;margin-bottom:14px}
+  .o5 .sign .hours div{border-color:rgba(244,236,216,.2);color:var(--cream)}
+  .o5 .sign .addr{margin-top:18px;font-family:'Bitter',serif;font-size:14px;line-height:1.6;color:#d7cdb4}
+  .o5 .card{background:#fff;border:2px solid var(--navy);padding:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 07</div>
+    <h1>Kontakt — 5 Optionen</h1>
+    <p>Adresse · Öffnungszeiten · Karte · Anfrage-Formular. Security (CSRF, Honeypot, Rate-Limit, Validierung, DSGVO-Consent) wird beim Bauen als Server-Action eingewebt. Sag mir die Nummer.</p>
+  </div>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Info + Karte + Formular</span><span class="opt-tag">der Prototyp, erweitert</span></div>
+    <p class="opt-desc">Links Info-Karte (Adresse/Zeiten/Kontakt), rechts Karte — <b>darunter das Anfrage-Formular</b> über die volle Breite. Vertraut, klar. <b>Motion:</b> Reveal beim Scroll.</p>
+    <div class="frame"><div class="o1"><div class="head"><div class="k">// 05 — Komm vorbei</div><h2>Am Hafen, Münster</h2></div>
+      <div class="box">
+        <div class="card info"><div class="rye">Anker &amp; Dolch Tattoo</div><div class="ln">Adresse</div><div class="v">Hafenweg 14<br>48155 Münster</div><div class="ln">Öffnungszeiten</div><div class="hours" id="h1"></div><div class="ln" style="margin-top:18px">Kontakt</div><div class="v">0251 / 22 14 88<br>@anker.dolch · hallo@anker-dolch.de</div></div>
+        <div class="card" style="padding:11px"><div class="mapph">⚓<br>Karte · Hafenweg, Münster</div></div>
+        <div class="card full"><div class="rye">Schick uns deine Idee</div><div class="form" id="f1"></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Form-Forward</span><span class="opt-tag">Formular im Fokus · Info als Seitenleiste</span></div>
+    <p class="opt-desc">Das <b>Formular dominiert links</b>, rechts kompakt Info + Zeiten + Mini-Karte. Maximiert Anfragen. <b>Motion:</b> Felder erscheinen gestaffelt.</p>
+    <div class="frame"><div class="o2"><div class="head"><div class="k">// 05 — Komm vorbei</div><h2>Erzähl uns von deiner Idee</h2></div>
+      <div class="box">
+        <div class="card"><div class="form" id="f2"></div></div>
+        <div class="side">
+          <div class="blk"><div class="ln">Öffnungszeiten</div><div class="hours" id="h2"></div></div>
+          <div class="blk"><div class="ln">Adresse &amp; Kontakt</div><div class="v">Hafenweg 14, 48155 Münster<br>0251 / 22 14 88<br>@anker.dolch</div></div>
+          <div class="map mapph">⚓ Karte</div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Centered + Map Band</span><span class="opt-tag">Formular zentriert · Zeiten als Ticket · Karten-Band</span></div>
+    <p class="opt-desc">Zentriertes Formular auf Marine, <b>Öffnungszeiten als Ticket-Streifen</b>, darunter ein <b>vollbreites Karten-Band</b>. Fokussiert, modern. <b>Motion:</b> Reveal + Ticket-Hover.</p>
+    <div class="frame"><div class="o3"><div class="head"><div class="k">// 05 — Komm vorbei</div><h2>Termin anfragen</h2></div>
+      <div class="ticket"><div>Di–Fr · 11–19</div><div>Sa · 11–16 · Walk-ins</div><div>So+Mo · Ruhetag</div></div>
+      <div class="box"><div class="form darkf" id="f3"></div></div>
+      <div class="mapband mapph">⚓ Karte · Hafenweg, Münster</div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Postkarte</span><span class="opt-tag">Vintage-Postkarte · Briefmarke · Trennlinie</span></div>
+    <p class="opt-desc">Kontakt als <b>Vintage-Postkarte</b>: links Adresse + „Briefmarke", rechts die Nachricht. Sehr charmant &amp; thematisch. <b>Motion:</b> Karte kippt leicht beim Reveal.</p>
+    <div class="frame"><div class="o4"><div class="head"><div class="k">// 05 — Komm vorbei</div><h2>Schreib uns eine Karte</h2></div>
+      <div class="card">
+        <div class="left"><div class="stamp">⚓</div><div class="pre">Anker &amp; Dolch</div><div class="info"><div class="ln">Studio</div><div class="v">Hafenweg 14<br>48155 Münster</div><div class="ln">Sprechzeiten</div><div class="hours" id="h4"></div><div class="ln" style="margin-top:14px">Kontakt</div><div class="v">0251 / 22 14 88<br>@anker.dolch</div></div></div>
+        <div class="right"><div class="pre">Deine Nachricht</div><div class="form" id="f4"></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Hours-Sign + Form</span><span class="opt-tag">Öffnungszeiten-Schild · Doppelrahmen</span></div>
+    <p class="opt-desc">Links ein <b>Öffnungszeiten-Schild</b> (Marine/Gold-Doppelrahmen) + Adresse, rechts das Formular. Aufgeräumt &amp; on-brand. <b>Motion:</b> Reveal beim Scroll.</p>
+    <div class="frame"><div class="o5"><div class="head"><div class="k">// 05 — Komm vorbei</div><h2>Am Hafen, Münster</h2></div>
+      <div class="box">
+        <div class="sign"><div class="big">Geöffnet</div><div class="hours" id="h5"></div><div class="addr">Hafenweg 14 · 48155 Münster<br>0251 / 22 14 88 · @anker.dolch</div></div>
+        <div class="card"><div class="form" id="f5"></div></div>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+  const hoursHTML = `<div><span>Di – Fr</span><span style="font-weight:700">11 – 19 Uhr</span></div><div><span>Samstag</span><span style="font-weight:700">11 – 16 · Walk-ins</span></div><div><span>So + Mo</span><span>Ruhetag</span></div>`;
+  document.querySelectorAll('[id^="h"]').forEach(e=>e.innerHTML=hoursHTML);
+
+  const form = (cls='') => `
+    <div class="${cls}">
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" placeholder="Leer lassen">
+      <div class="row"><div><label>Name</label><input placeholder="Dein Name"></div><div><label>E-Mail</label><input type="email" placeholder="du@mail.de"></div></div>
+      <div class="row"><div><label>Telefon (optional)</label><input placeholder="0151 …"></div><div><label>Wunsch-Künstler:in</label><select><option>Egal / Vorschlag</option><option>Mac</option><option>Greta</option><option>Henning</option><option>Lotte</option></select></div></div>
+      <div class="row"><div><label>Stil / Motiv</label><input placeholder="z. B. Anker, Rose …"></div><div><label>Körperstelle</label><input placeholder="z. B. Unterarm"></div><div><label>Größe ca. (cm)</label><input placeholder="10"></div></div>
+      <div class="field"><label>Deine Idee</label><textarea placeholder="Beschreib kurz dein Wunsch-Tattoo …"></textarea></div>
+      <label class="consent ${cls.includes('darkf')?'d':''}"><input type="checkbox"> Ich habe die <u>Datenschutzerklärung</u> gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung der Anfrage einverstanden. (Art. 6 Abs. 1 b DSGVO)</label>
+      <button class="btn ${cls.includes('darkf')?'gold':''}" type="button">★ Anfrage senden ★</button>
+      <div class="lock">🔒 Sichere Übertragung · CSRF-Schutz · Spam-Filter · ab 18 Jahren</div>
+    </div>`;
+  ['f1','f2','f4','f5'].forEach(id=>{const el=document.getElementById(id); if(el) el.innerHTML=form();});
+  document.getElementById('f3').innerHTML=form('darkf');
+</script>
+</body>
+</html>
