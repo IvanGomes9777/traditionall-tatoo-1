@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Hero · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+
+  /* image slot w/ graceful fallback to striped vintage placeholder */
+  .slot{position:relative;overflow:hidden;background:repeating-linear-gradient(45deg,rgba(27,42,74,.10) 0 8px,transparent 8px 16px),var(--cream2)}
+  .slot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;color:#9a8c6a;text-transform:uppercase}
+  .slot img{position:relative;width:100%;height:100%;object-fit:cover;display:block}
+
+  @keyframes twinkle{0%,100%{opacity:1;transform:scale(1) rotate(0)}50%{opacity:.4;transform:scale(.8) rotate(10deg)}}
+  @keyframes floatUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+  @keyframes ken{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .banner{display:inline-block;font-family:'Rye',serif;color:var(--cream);background:var(--red);padding:7px 26px;box-shadow:4px 4px 0 var(--navy);animation:sway 6s ease-in-out infinite}
+  .btn-primary{font-family:'Bitter',serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:var(--navy);padding:16px 30px;box-shadow:4px 4px 0 var(--red);transition:all .2s;display:inline-block}
+  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--red)}
+  .btn-ghost{font-family:'Bitter',serif;font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border:2px solid var(--navy);background:transparent;padding:15px 24px;transition:all .2s;display:inline-block}
+  .btn-ghost:hover{background:var(--navy);color:var(--cream)}
+  .btn-ghost.lt{color:var(--cream);border-color:var(--cream)}
+  .btn-ghost.lt:hover{background:var(--cream);color:var(--navy)}
+
+  /* ===== O1 Framed Triptych ===== */
+  .o1{position:relative;padding:42px;background:radial-gradient(140% 120% at 50% 0,rgba(225,161,0,.07),transparent 48%),var(--cream)}
+  .o1 .bord1{position:absolute;inset:42px;border:2px solid var(--navy);pointer-events:none}
+  .o1 .bord2{position:absolute;inset:49px;border:1px solid rgba(193,39,45,.5);pointer-events:none}
+  .o1 .star{position:absolute;color:var(--red);font-size:19px;animation:twinkle 4s ease-in-out infinite}
+  .o1 .inner{position:relative;display:flex;align-items:center;justify-content:center;gap:34px;padding:34px 20px}
+  .o1 .fl{flex:0 0 140px;height:330px;border:2px solid var(--navy);padding:8px;background:#fff;box-shadow:5px 6px 0 rgba(27,42,74,.18);animation:floatUp 1s both}
+  .o1 .fl .slot{height:100%;border:1px solid rgba(193,39,45,.45)}
+  .o1 .ctr{flex:1 1 auto;max-width:560px;text-align:center;animation:floatUp 1s .1s both}
+  .o1 .pre{font-family:'Rye',serif;font-size:16px;color:var(--red);margin-bottom:8px}
+  .o1 h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(40px,5vw,68px);line-height:.95;margin:0;color:var(--navy);text-transform:uppercase}
+  .o1 p{font-family:'Bitter',serif;font-size:15px;line-height:1.7;color:var(--sepia);max-width:420px;margin:22px auto 26px}
+
+  /* ===== O2 Full-bleed Photo ===== */
+  .o2{position:relative;min-height:460px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .o2 .bg{position:absolute;inset:0}
+  .o2 .bg img,.o2 .bg .slot{width:100%;height:100%}
+  .o2 .bg img{animation:ken 14s ease-out forwards}
+  .o2 .veil{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 40%,rgba(20,33,58,.45),rgba(20,33,58,.86))}
+  .o2 .c{position:relative;padding:60px 24px;color:var(--cream);animation:floatUp 1.1s both}
+  .o2 .seal{width:78px;height:78px;border-radius:50%;border:2px dashed var(--gold);color:var(--gold);font-family:'Rye',serif;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;margin:0 auto 18px}
+  .o2 h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(42px,5.6vw,76px);line-height:.95;margin:0;text-transform:uppercase}
+  .o2 .sub{font-family:'Rye',serif;font-size:clamp(20px,2.4vw,28px);color:var(--gold);margin-top:10px}
+
+  /* ===== O3 Split Editorial ===== */
+  .o3{display:grid;grid-template-columns:1.05fr .95fr;min-height:480px}
+  .o3 .txt{background:var(--cream);padding:56px 48px;display:flex;flex-direction:column;justify-content:center;animation:floatUp 1s both}
+  .o3 .pre{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+  .o3 h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(40px,4.6vw,62px);line-height:.96;margin:0;color:var(--navy);text-transform:uppercase}
+  .o3 p{font-family:'Bitter',serif;font-size:15px;line-height:1.7;color:var(--sepia);max-width:420px;margin:22px 0 28px}
+  .o3 .pic{position:relative;border-left:3px solid var(--gold);background:var(--navy)}
+  .o3 .pic .slot{position:absolute;inset:14px;border:2px solid var(--gold)}
+  .o3 .pic img{animation:ken 16s ease-out forwards}
+
+  /* ===== O4 Flash Poster ===== */
+  .o4{position:relative;padding:44px;background:var(--navy);color:var(--cream);overflow:hidden}
+  .o4 .grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);opacity:.16}
+  .o4 .grid .slot{height:100%;min-height:90px;border:1px solid rgba(201,168,106,.4)}
+  .o4 .card{position:relative;max-width:620px;margin:0 auto;border:3px double var(--gold);background:rgba(20,33,58,.82);padding:44px 36px;text-align:center;animation:floatUp 1s both}
+  .o4 .em{font-size:36px;margin-bottom:6px}
+  .o4 .pre{font-family:'Rye',serif;color:var(--gold);font-size:18px}
+  .o4 h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(38px,5vw,64px);line-height:.94;margin:8px 0;text-transform:uppercase}
+  .o4 .rule{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);margin:10px 0 16px}
+  .o4 .rule::before,.o4 .rule::after{content:"";height:1px;width:60px;background:var(--gold)}
+  .o4 p{font-family:'Bitter',serif;font-size:15px;line-height:1.7;color:#d7cdb4;max-width:400px;margin:0 auto 24px}
+
+  /* ===== O5 Oversized Marquee Type ===== */
+  .o5{position:relative;background:var(--cream);padding:48px 0 40px;overflow:hidden}
+  .o5 .strip{overflow:hidden}
+  .o5 .strip .run{display:flex;width:max-content;animation:marquee 30s linear infinite}
+  .o5 .run h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(54px,9vw,120px);line-height:.9;margin:0;text-transform:uppercase;color:var(--navy);white-space:nowrap;padding-right:40px}
+  .o5 .run h2 .o{color:transparent;-webkit-text-stroke:2px var(--red);}
+  .o5 .photo{max-width:1000px;margin:26px auto 0;padding:0 32px;display:flex;gap:14px;align-items:center}
+  .o5 .photo .slot{flex:1;height:160px;border:2px solid var(--navy)}
+  .o5 .photo img{animation:ken 18s ease-out forwards}
+  .o5 .cta{text-align:center;margin-top:26px}
+  .o5 .sub{text-align:center;font-family:'Bitter',serif;font-size:15px;color:var(--sepia);margin:6px auto 0;max-width:440px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 02</div>
+    <h1>Hero-Section — 5 Optionen</h1>
+    <p>Alle in der Vintage-DNA, mit echten Unsplash-Tattoo-Fotos (Fallback = gestreifter Platzhalter). Reveal-, Ken-Burns- &amp; Sway-Animationen sind live. Sag mir die Nummer (oder Mix), dann baue ich sie in Next.js.</p>
+  </div>
+
+  <!-- O1 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Framed Triptych</span><span class="opt-tag">der Prototyp, veredelt · symmetrisch</span></div>
+    <p class="opt-desc">Zentraler Text zwischen zwei <b>gekippten Flash-Frames</b>, Doppelrahmen mit <b>funkelnden Eck-Sternen</b>, rotes „Done Right"-Banner. <b>Motion:</b> Frames &amp; Text floaten gestaffelt rein, Sterne twinkeln, Banner schwingt.</p>
+    <div class="frame"><div class="o1">
+      <div class="bord1"></div><div class="bord2"></div>
+      <div class="star" style="top:50px;left:50px">★</div><div class="star" style="top:50px;right:50px;animation-delay:.6s">★</div>
+      <div class="star" style="bottom:50px;left:50px;animation-delay:1.2s">★</div><div class="star" style="bottom:50px;right:50px;animation-delay:1.8s">★</div>
+      <div class="inner">
+        <div class="fl"><div class="slot"><div class="ph">Anker · Flash</div><img alt="" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=400&q=80" onerror="this.style.display='none'"></div></div>
+        <div class="ctr">
+          <div class="pre">~ Münster · Old-School seit 2012 ~</div>
+          <h2>Traditional<br>Tattoos</h2>
+          <div class="banner" style="font-size:26px;margin-top:16px">— Done Right —</div>
+          <p>Kräftige Linien. Satte Farben. Motive, die in 30 Jahren noch genauso sitzen. Echtes Handwerk am Hafen von Münster.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a class="btn-primary">★ Termin buchen ★</a><a class="btn-ghost">Flash ansehen ↓</a></div>
+        </div>
+        <div class="fl" style="animation-delay:.3s"><div class="slot"><div class="ph">Rose · Flash</div><img alt="" src="https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=400&q=80" onerror="this.style.display='none'"></div></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- O2 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Full-Bleed Photo</span><span class="opt-tag">cinematic · Wachssiegel · maximale Wucht</span></div>
+    <p class="opt-desc">Vollformatiges Tattoo-Foto mit <b>Marine-Vignette</b>, riesige Headline in Creme, rundes <b>Wachssiegel „Est. 2012"</b>. <b>Motion:</b> langsamer Ken-Burns-Zoom, Text faded cinematisch ein.</p>
+    <div class="frame"><div class="o2">
+      <div class="bg"><div class="slot"><div class="ph">Hero-Foto · Blackwork-Arm</div><img alt="" src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1400&q=80" onerror="this.style.display='none'"></div></div>
+      <div class="veil"></div>
+      <div class="c">
+        <div class="seal">Est.<br>2012</div>
+        <h2>Traditional<br>Tattoos</h2>
+        <div class="sub">— Done Right —</div>
+        <div style="margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a class="btn-primary">★ Termin buchen ★</a><a class="btn-ghost lt">Flash ansehen ↓</a></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- O3 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Split Editorial</span><span class="opt-tag">Magazin-Look · Text links, Foto rechts im Gold-Rahmen</span></div>
+    <p class="opt-desc">Linke Hälfte: <b>typografischer Block</b> auf Vintage-Papier. Rechte Hälfte: bildhohes Foto im <b>Gold-Rahmen</b> auf Marine. Redaktionell, ruhig, hochwertig. <b>Motion:</b> Text floatet rein, Foto langsamer Ken-Burns.</p>
+    <div class="frame"><div class="o3">
+      <div class="txt">
+        <div class="pre">// Münster · Hafenweg · seit 2012</div>
+        <h2>Bold Lines.<br>True Color.</h2>
+        <p>American Traditional, wie es sein soll — saubere Outlines, satte Farben, Motive fürs Leben. Such dir was von der Flash-Wand oder bring deine eigene Idee mit.</p>
+        <div class="banner" style="font-size:20px;align-self:flex-start;margin-bottom:24px">— Anker &amp; Dolch —</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn-primary">★ Termin buchen ★</a><a class="btn-ghost">Flash ansehen ↓</a></div>
+      </div>
+      <div class="pic"><div class="slot"><div class="ph" style="color:#8a7d5c">Editorial-Foto · Sleeve</div><img alt="" src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80" onerror="this.style.display='none'"></div></div>
+    </div></div>
+  </section>
+
+  <!-- O4 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Flash Poster</span><span class="opt-tag">Vintage-Druckplakat · Emblem · Doppelrahmen</span></div>
+    <p class="opt-desc">Wie ein <b>altes Tattoo-Flash-Plakat</b>: zentrales Emblem, doppelter Gold-Rahmen, gestapelte Slab-Typo, im Hintergrund ein blasses <b>Flash-Motiv-Raster</b>. Maximal Americana-Print. <b>Motion:</b> Karte floatet rein, Hintergrund-Raster subtil.</p>
+    <div class="frame"><div class="o4">
+      <div class="grid">
+        <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+        <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+      </div>
+      <div class="card">
+        <div class="em">⚓</div>
+        <div class="pre">Anchor &amp; Dagger · Münster</div>
+        <h2>Traditional<br>Tattoos</h2>
+        <div class="rule">★ ★ ★</div>
+        <p>Bold lines. Solid color. Walk-ins jeden Freitag &amp; Samstag. Bold &amp; true since 2012.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a class="btn-primary" style="box-shadow:4px 4px 0 var(--gold)">★ Termin buchen ★</a><a class="btn-ghost lt">Flash ansehen ↓</a></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- O5 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Oversized Marquee Type</span><span class="opt-tag">modern-vintage · Riesentypo läuft · Foto-Streifen</span></div>
+    <p class="opt-desc">Überdimensionale <b>laufende Headline</b> (mit rot-outline-Wort), darunter ein schmaler <b>Foto-Streifen</b> aus drei Tattoos. Bold, modern, trotzdem old-school. <b>Motion:</b> Headline marquee-scrollt endlos, Fotos Ken-Burns.</p>
+    <div class="frame"><div class="o5">
+      <div class="strip"><div class="run">
+        <h2>Traditional&nbsp;<span class="o">Tattoos</span>&nbsp;★&nbsp;</h2><h2>Traditional&nbsp;<span class="o">Tattoos</span>&nbsp;★&nbsp;</h2>
+      </div></div>
+      <p class="sub">Bold lines · solid color · Hafenweg, Münster · seit 2012</p>
+      <div class="photo">
+        <div class="slot"><div class="ph">Anker</div><img alt="" src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=500&q=80" onerror="this.style.display='none'"></div>
+        <div class="slot"><div class="ph">Schwalbe</div><img alt="" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=500&q=80" onerror="this.style.display='none'"></div>
+        <div class="slot"><div class="ph">Rose</div><img alt="" src="https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=500&q=80" onerror="this.style.display='none'"></div>
+      </div>
+      <div class="cta"><a class="btn-primary">★ Termin buchen ★</a></div>
+    </div></div>
+  </section>
+</div>
+</body>
+</html>
