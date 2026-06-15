@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anker & Dolch — Crew · 5 Optionen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rye&family=Bitter:ital,wght@0,400;0,500;0,600;0,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#1B2A4A;--navy-d:#14213a;--red:#C1272D;--gold:#C9A86A;--cream:#F4ECD8;--cream2:#ece3cd;--sepia:#5C4033;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#3a3a3a;color:#e8e8e8;font-family:'Bitter',serif}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 28px 110px}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .kick{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .page-head h1{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(28px,4vw,44px);margin:10px 0 6px;color:#fff;text-transform:uppercase}
+  .page-head p{color:#b9b9b9;max-width:680px;margin:0 auto;font-size:15px;line-height:1.6}
+  .opt{margin-top:48px}
+  .opt-label{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .opt-num{font-family:'Alfa Slab One',serif;font-size:22px;color:var(--gold)}
+  .opt-name{font-family:'Rye',serif;font-size:22px;color:#fff}
+  .opt-tag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a9a}
+  .opt-desc{font-size:14px;color:#c4c4c4;line-height:1.6;margin:0 0 16px;max-width:920px}
+  .opt-desc b{color:var(--gold);font-weight:600}
+  .frame{border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);border:1px solid #555}
+  .head{text-align:center;padding:42px 20px 26px}
+  .head .k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px;color:var(--red)}
+  .head h2{font-family:'Alfa Slab One',serif;font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1;margin:0;text-transform:uppercase;color:var(--navy)}
+  .head p{font-family:'Bitter',serif;font-size:15px;max-width:440px;margin:14px auto 0;color:var(--sepia)}
+
+  .pslot{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,rgba(27,42,74,.07) 0 7px,transparent 7px 14px),var(--cream2);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#9a8c6a;text-transform:uppercase}
+  .wslot{position:relative;overflow:hidden;background:repeating-linear-gradient(45deg,rgba(27,42,74,.1) 0 8px,transparent 8px 16px),var(--cream2)}
+  .wslot img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ===== O1 Framed Portraits ===== */
+  .o1{background:var(--cream);padding-bottom:54px}
+  .o1 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .o1 .art{text-align:center}
+  .o1 .fr{position:relative;aspect-ratio:3/4;border:2px solid var(--navy);padding:9px;background:#fff;box-shadow:5px 6px 0 rgba(27,42,74,.16);transition:all .22s ease}
+  .o1 .art:hover .fr{transform:translate(-2px,-3px);box-shadow:8px 10px 0 rgba(27,42,74,.22)}
+  .o1 .fr::after{content:"";position:absolute;inset:9px;border:1px solid rgba(193,39,45,.4);pointer-events:none}
+  .o1 .fr .pslot{position:absolute;inset:9px}
+  .o1 .nm{font-family:'Alfa Slab One',serif;font-size:20px;color:var(--navy);margin-top:16px}
+  .o1 .ro{font-family:'Rye',serif;font-size:15px;color:var(--red);margin-top:2px}
+  .o1 .sp{font-family:'Bitter',serif;font-size:14px;color:var(--sepia);margin-top:8px}
+
+  /* ===== O2 Flip Card ===== */
+  .o2{background:var(--navy);padding-bottom:54px}
+  .o2 .head .k{color:var(--gold)}.o2 .head h2{color:var(--cream)}.o2 .head p{color:var(--gold)}
+  .o2 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .o2 .card{aspect-ratio:3/4;perspective:1200px;cursor:pointer}
+  .o2 .inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+  .o2 .card:hover .inner{transform:rotateY(180deg)}
+  .o2 .face{position:absolute;inset:0;backface-visibility:hidden;border:2px solid var(--gold);overflow:hidden}
+  .o2 .front{background:#fff;padding:9px}
+  .o2 .front .pslot{width:100%;height:100%}
+  .o2 .front .tag{position:absolute;bottom:0;left:0;right:0;background:rgba(27,42,74,.9);color:var(--cream);padding:10px;text-align:center}
+  .o2 .front .tag .nm{font-family:'Alfa Slab One',serif;font-size:15px}
+  .o2 .front .tag .ro{font-family:'Rye',serif;font-size:12px;color:var(--gold)}
+  .o2 .back{transform:rotateY(180deg);background:var(--navy-d)}
+  .o2 .back .wslot{position:absolute;inset:0;opacity:.5}
+  .o2 .back .ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:16px;background:linear-gradient(rgba(20,33,58,.4),rgba(20,33,58,.85))}
+  .o2 .back .sp{font-family:'Bitter',serif;font-size:14px;color:var(--cream)}
+  .o2 .back .btn{font-family:'Bitter',serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:9px 16px;margin-top:6px}
+  .o2 .hint{text-align:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;color:#6f7e9c;text-transform:uppercase;margin-top:20px}
+
+  /* ===== O3 Editorial Row ===== */
+  .o3{background:var(--cream);padding-bottom:40px}
+  .o3 .rows{max-width:980px;margin:0 auto;padding:0 32px}
+  .o3 .row{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center;padding:26px 0;border-bottom:1px solid rgba(27,42,74,.16)}
+  .o3 .row:nth-child(even){grid-template-columns:1fr 200px}
+  .o3 .row:nth-child(even) .fr{order:2}.o3 .row:nth-child(even) .txt{order:1;text-align:right}
+  .o3 .fr{aspect-ratio:3/4;border:2px solid var(--navy);padding:7px;background:#fff}
+  .o3 .fr .pslot{width:100%;height:100%}
+  .o3 .num{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--red)}
+  .o3 .nm{font-family:'Alfa Slab One',serif;font-size:30px;color:var(--navy);line-height:1;margin:6px 0}
+  .o3 .ro{font-family:'Rye',serif;font-size:18px;color:var(--red)}
+  .o3 .sp{font-family:'Bitter',serif;font-size:15px;color:var(--sepia);margin-top:8px}
+
+  /* ===== O4 Trading Card ===== */
+  .o4{background:#243a63;padding-bottom:54px;background-image:radial-gradient(120% 80% at 50% 0,rgba(225,161,0,.12),transparent 55%)}
+  .o4 .head .k{color:var(--gold)}.o4 .head h2{color:var(--cream)}.o4 .head p{color:var(--gold)}
+  .o4 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .o4 .tc{background:var(--cream);border:3px solid var(--gold);padding:10px;box-shadow:0 8px 0 rgba(0,0,0,.25);transition:transform .25s ease}
+  .o4 .tc:hover{transform:translateY(-6px) rotate(-1.5deg)}
+  .o4 .topbar{display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--navy);text-transform:uppercase;margin-bottom:8px}
+  .o4 .stars{color:var(--red);letter-spacing:1px}
+  .o4 .pslot{aspect-ratio:1;border:1px solid var(--red)}
+  .o4 .nm{font-family:'Alfa Slab One',serif;font-size:17px;color:var(--navy);text-align:center;margin-top:10px}
+  .o4 .ro{font-family:'Rye',serif;font-size:13px;color:var(--red);text-align:center}
+  .o4 .tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:8px}
+  .o4 .tags span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;background:var(--navy);color:var(--cream);padding:3px 7px}
+
+  /* ===== O5 Wanted Poster ===== */
+  .o5{background:var(--cream2);padding-bottom:54px}
+  .o5 .head .k{color:var(--red)}.o5 .head h2{color:var(--navy)}
+  .o5 .grid{max-width:1080px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .o5 .poster{background:#f6efdd;border:3px double var(--sepia);padding:14px 12px;text-align:center;box-shadow:2px 3px 8px rgba(0,0,0,.18);transition:transform .2s}
+  .o5 .poster:hover{transform:scale(1.03)}
+  .o5 .est{font-family:'Rye',serif;font-size:13px;color:var(--sepia)}
+  .o5 .top{font-family:'Alfa Slab One',serif;font-size:14px;letter-spacing:.08em;color:var(--red);text-transform:uppercase;margin:2px 0 8px}
+  .o5 .pslot{aspect-ratio:1;border:2px solid var(--sepia)}
+  .o5 .nm{font-family:'Alfa Slab One',serif;font-size:17px;color:var(--navy);margin-top:10px;text-transform:uppercase}
+  .o5 .ro{font-family:'Bitter',serif;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);background:var(--red);display:inline-block;padding:3px 10px;margin-top:6px}
+  .o5 .sp{font-family:'Bitter',serif;font-size:13px;color:var(--sepia);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-head">
+    <div class="kick">Anker &amp; Dolch · Sektion 04</div>
+    <h1>Die Crew — 5 Optionen</h1>
+    <p>Vier Künstler: Mac, Greta, Henning, Lotte. Portraits = Vintage-Platzhalter (echte Fotos kommen später rein). Opt. 02 = Hover-Flip zur Arbeit, Opt. 04 = Tilt. Sag mir die Nummer.</p>
+  </div>
+
+  <!-- O1 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">01</span><span class="opt-name">Framed Portraits</span><span class="opt-tag">der Prototyp, veredelt</span></div>
+    <p class="opt-desc">Vintage-<b>Doppelrahmen-Portrait</b>, Name (Slab), Rolle (Rye-Rot), Spezialgebiet. <b>Hover</b> hebt den Rahmen mit Hard-Shadow. <b>Motion:</b> Karten erscheinen gestaffelt.</p>
+    <div class="frame"><div class="o1">
+      <div class="head"><div class="k">// 02 — Die Crew</div><h2>Vier Hände, eine Linie</h2><p>Jeder mit eigener Handschrift — alle stechen sauber, kräftig, für die Ewigkeit.</p></div>
+      <div class="grid" id="g1"></div>
+    </div></div>
+  </section>
+
+  <!-- O2 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">02</span><span class="opt-name">Flip Card</span><span class="opt-tag">interaktiv · Portrait ↔ echte Arbeit</span></div>
+    <p class="opt-desc">Karte <b>flippt beim Hover</b>: vorne Portrait, hinten ein echtes Werk + Spezialgebiet + „Buchen". Genau wie im Briefing. <b>Probier's:</b> über die Karten fahren. <b>Motion:</b> 3D-Flip.</p>
+    <div class="frame"><div class="o2">
+      <div class="head"><div class="k">// 02 — Die Crew</div><h2>Vier Hände, eine Linie</h2><p>Dreh die Karte — sieh die Arbeit.</p></div>
+      <div class="grid" id="g2"></div>
+      <div class="hint">↻ über die Karten fahren zum Umdrehen</div>
+    </div></div>
+  </section>
+
+  <!-- O3 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">03</span><span class="opt-name">Editorial Row</span><span class="opt-tag">Magazin · große Portraits, abwechselnd</span></div>
+    <p class="opt-desc">Große <b>Editorial-Zeilen</b>: Portrait links/rechts abwechselnd, daneben Name &amp; Bio. Ruhig, hochwertig, viel Raum. <b>Motion:</b> Zeilen sliden beim Scroll abwechselnd ein.</p>
+    <div class="frame"><div class="o3">
+      <div class="head"><div class="k">// 02 — Die Crew</div><h2>Die Künstler</h2></div>
+      <div class="rows" id="g3"></div>
+    </div></div>
+  </section>
+
+  <!-- O4 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">04</span><span class="opt-name">Trading Card</span><span class="opt-tag">Sammelkarte · Sterne-Rating · Tags</span></div>
+    <p class="opt-desc">Jeder Künstler als <b>Old-School-Sammelkarte</b> mit Sterne-Rating, Spezial-Tags &amp; Emblem. Verspielt, Americana. <b>Motion:</b> Hover-Tilt + Lift.</p>
+    <div class="frame"><div class="o4">
+      <div class="head"><div class="k">// 02 — Die Crew</div><h2>Sammel die Crew</h2><p>Vier Künstler, vier Handschriften.</p></div>
+      <div class="grid" id="g4"></div>
+    </div></div>
+  </section>
+
+  <!-- O5 -->
+  <section class="opt">
+    <div class="opt-label"><span class="opt-num">05</span><span class="opt-name">Wanted Poster</span><span class="opt-tag">Vintage-Plakat · „EST." · Doppelrahmen</span></div>
+    <p class="opt-desc">Jeder Künstler als <b>Vintage-„Wanted"-Plakat</b> auf gealtertem Papier, Doppelrahmen, Rollen-Banner. Maximal Old-School-Print. <b>Motion:</b> sanftes Scale beim Hover.</p>
+    <div class="frame"><div class="o5">
+      <div class="head"><div class="k">// 02 — Die Crew</div><h2>Die üblichen Verdächtigen</h2></div>
+      <div class="grid" id="g5"></div>
+    </div></div>
+  </section>
+</div>
+
+<script>
+  const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=420&q=70`;
+  const CREW = [
+    {nm:'Magnus Reinhold', ro:'„Mac" · Inhaber', sp:'Bold Traditional · Anker & Schiffe', stars:'★★★★★', tags:['Traditional','Maritime'], work:'1585303390830-874c989ce8f1'},
+    {nm:'Greta Brügge',    ro:'Künstlerin',      sp:'Neo-Traditional · Rosen & Tiere',   stars:'★★★★★', tags:['Neo-Trad','Color'],   work:'1601848714157-d845bb5c11ff'},
+    {nm:'Henning Voss',    ro:'Künstler',        sp:'Black & Grey · Lettering',          stars:'★★★★★', tags:['B&G','Lettering'],    work:'1543244128-30d70d41e2a9'},
+    {nm:'Lotte Sandmann',  ro:'Künstlerin',      sp:'Old-School Flash · Walk-ins',       stars:'★★★★☆', tags:['Flash','Walk-ins'],   work:'1521308452854-e037c0062a1e'},
+  ];
+  const img = c => `<img alt="${c.nm} — Arbeit" src="${U(c.work)}" onerror="this.style.display='none'">`;
+
+  document.getElementById('g1').innerHTML = CREW.map(c=>`<div class="art"><div class="fr"><div class="pslot">Portrait</div></div><div class="nm">${c.nm}</div><div class="ro">${c.ro}</div><div class="sp">${c.sp}</div></div>`).join('');
+
+  document.getElementById('g2').innerHTML = CREW.map(c=>`<div class="card"><div class="inner">
+      <div class="face front"><div class="pslot">Portrait</div><div class="tag"><div class="nm">${c.nm}</div><div class="ro">${c.ro}</div></div></div>
+      <div class="face back"><div class="wslot">${img(c)}</div><div class="ov"><div class="sp">${c.sp}</div><div class="btn">Buchen →</div></div></div>
+    </div></div>`).join('');
+
+  document.getElementById('g3').innerHTML = CREW.map((c,i)=>`<div class="row"><div class="fr"><div class="pslot">Portrait</div></div><div class="txt"><div class="num">// 0${i+1}</div><div class="nm">${c.nm}</div><div class="ro">${c.ro}</div><div class="sp">${c.sp}</div></div></div>`).join('');
+
+  document.getElementById('g4').innerHTML = CREW.map(c=>`<div class="tc"><div class="topbar"><span>A&D</span><span class="stars">${c.stars}</span></div><div class="pslot"><div class="pslot" style="position:static;width:100%;height:100%">Portrait</div></div><div class="nm">${c.nm}</div><div class="ro">${c.ro}</div><div class="tags">${c.tags.map(t=>`<span>${t}</span>`).join('')}</div></div>`).join('');
+
+  document.getElementById('g5').innerHTML = CREW.map(c=>`<div class="poster"><div class="est">~ Est. 2012 ~</div><div class="top">★ The Crew ★</div><div class="pslot"><div class="pslot" style="position:static;width:100%;height:100%">Portrait</div></div><div class="nm">${c.nm}</div><div><span class="ro">${c.ro}</span></div><div class="sp">${c.sp}</div></div>`).join('');
+</script>
+</body>
+</html>
