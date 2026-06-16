@@ -177,49 +177,51 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile full-screen overlay menu */}
-      <div
-        className={`fixed inset-0 z-[60] flex flex-col items-center justify-center gap-6 bg-navy transition-opacity duration-300 md:hidden ${
-          menuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
-        }`}
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!menuOpen}
-      >
-        <button
-          type="button"
-          onClick={() => setMenuOpen(false)}
-          className="absolute right-6 top-6 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-gold"
-          aria-label="Menü schließen"
-        >
-          ✕ Schließen
-        </button>
-        {ALL_LINKS.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            onClick={() => setMenuOpen(false)}
-            className="font-display text-[1.625rem] uppercase text-cream transition-colors hover:text-gold"
-          >
-            {l.label}
-          </a>
-        ))}
-        <a
-          href="#kontakt"
-          onClick={() => setMenuOpen(false)}
-          className="mt-2 bg-red px-7 py-3.5 font-body text-[0.875rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#C9A86A]"
-        >
-          ★ Termin buchen ★
-        </a>
-        <a
-          href="tel:+49251221488"
-          onClick={() => setMenuOpen(false)}
-          className="font-mono text-[0.8125rem] uppercase tracking-[0.14em] text-gold transition-colors hover:text-cream"
-        >
-          ☎ Anruf · 0251 / 22 14 88
-        </a>
-      </div>
     </header>
+
+    {/* Mobile full-screen overlay menu — outside <header> so its fixed
+        positioning is relative to the viewport, not the transformed header */}
+    <div
+      className={`fixed inset-0 z-[60] flex flex-col items-center justify-center gap-6 bg-navy transition-opacity duration-300 md:hidden ${
+        menuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
+      }`}
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!menuOpen}
+    >
+      <button
+        type="button"
+        onClick={() => setMenuOpen(false)}
+        className="absolute right-6 top-6 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-gold"
+        aria-label="Menü schließen"
+      >
+        ✕ Schließen
+      </button>
+      {ALL_LINKS.map((l) => (
+        <a
+          key={l.href}
+          href={l.href}
+          onClick={() => setMenuOpen(false)}
+          className="font-display text-[1.625rem] uppercase text-cream transition-colors hover:text-gold"
+        >
+          {l.label}
+        </a>
+      ))}
+      <a
+        href="#kontakt"
+        onClick={() => setMenuOpen(false)}
+        className="mt-2 bg-red px-7 py-3.5 font-body text-[0.875rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#C9A86A]"
+      >
+        ★ Termin buchen ★
+      </a>
+      <a
+        href="tel:+49251221488"
+        onClick={() => setMenuOpen(false)}
+        className="font-mono text-[0.8125rem] uppercase tracking-[0.14em] text-gold transition-colors hover:text-cream"
+      >
+        ☎ Anruf · 0251 / 22 14 88
+      </a>
+    </div>
 
     {/* Floating action buttons — kept outside <header> so they stay fixed to
         the viewport and remain reachable once the header has scrolled away */}
