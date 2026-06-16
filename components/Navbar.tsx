@@ -37,20 +37,42 @@ function Star({ className = '' }: { className?: string }) {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [pastHeader, setPastHeader] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // anchored CTA buttons: shown after leaving the hero, hidden once the Kontakt
+  // section is reached (or scrolled past — Kontakt already has call/booking)
+  const [heroInView, setHeroInView] = useState(true);
+  const [kontaktReached, setKontaktReached] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 8);
-      // show the floating Termin button once the header has scrolled away
-      setPastHeader(y > 120);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // watch the hero (#top) and contact (#kontakt) sections to toggle the
+  // anchored Anruf/Termin buttons
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    const hero = document.getElementById('top');
+    if (hero) {
+      const io = new IntersectionObserver(([e]) => setHeroInView(e.isIntersecting));
+      io.observe(hero);
+      observers.push(io);
+    }
+    const kontakt = document.getElementById('kontakt');
+    if (kontakt) {
+      // "reached" = in view OR already scrolled above the viewport
+      const io = new IntersectionObserver(([e]) =>
+        setKontaktReached(e.isIntersecting || e.boundingClientRect.top < 0),
+      );
+      io.observe(kontakt);
+      observers.push(io);
+    }
+    return () => observers.forEach((io) => io.disconnect());
+  }, []);
+
+  const showCta = !heroInView && !kontaktReached && !menuOpen;
 
   // lock body scroll while the mobile overlay is open
   useEffect(() => {
@@ -223,53 +245,32 @@ export default function Navbar() {
       </a>
     </div>
 
-    {/* Floating action buttons — kept outside <header> so they stay fixed to
-        the viewport and remain reachable once the header has scrolled away */}
+    {/* Anchored CTA buttons — appear once the hero has scrolled out of view and
+        hide again on the Kontakt section (which already has call/booking).
+        Full-width split on phones, centred floating pair from sm up. */}
     <div
-      className={`fixed bottom-5 right-5 z-[55] hidden items-center gap-3 transition-all duration-300 sm:bottom-7 sm:right-7 md:flex ${
-        pastHeader && !menuOpen
-          ? 'opacity-100'
-          : 'pointer-events-none translate-y-3 opacity-0'
+      className={`fixed inset-x-0 bottom-0 z-[55] flex gap-px transition-all duration-300 sm:inset-x-auto sm:bottom-6 sm:left-1/2 sm:-translate-x-1/2 sm:gap-3 ${
+        showCta
+          ? 'translate-y-0 opacity-100'
+          : 'pointer-events-none translate-y-full opacity-0 sm:translate-y-3'
       }`}
-      aria-hidden={!pastHeader || menuOpen}
+      aria-hidden={!showCta}
     >
       <a
         href="tel:+49251221488"
-        className="flex min-h-[44px] items-center gap-2 bg-navy px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
-        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+        className="flex min-h-[52px] flex-1 items-center justify-center gap-2 bg-navy px-5 font-body text-[0.875rem] font-bold uppercase tracking-[0.1em] text-cream shadow-[0_-2px_0_rgba(27,42,74,0.25)] transition-transform duration-200 sm:flex-none sm:py-3.5 sm:shadow-[4px_4px_0_#1B2A4A] sm:hover:-translate-x-px sm:hover:-translate-y-px sm:hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={showCta ? 0 : -1}
       >
         <span aria-hidden="true">☎</span> Anruf
       </a>
       <a
         href="#kontakt"
-        className="flex min-h-[44px] items-center bg-red px-5 py-3 font-body text-[0.8125rem] font-bold uppercase tracking-[0.12em] text-cream shadow-[4px_4px_0_#1B2A4A] transition-transform duration-200 hover:-translate-x-px hover:-translate-y-px hover:shadow-[6px_6px_0_#1B2A4A]"
-        tabIndex={pastHeader && !menuOpen ? 0 : -1}
+        className="flex min-h-[52px] flex-1 items-center justify-center bg-red px-5 font-body text-[0.875rem] font-bold uppercase tracking-[0.1em] text-cream shadow-[0_-2px_0_rgba(27,42,74,0.25)] transition-transform duration-200 sm:flex-none sm:py-3.5 sm:shadow-[4px_4px_0_#1B2A4A] sm:hover:-translate-x-px sm:hover:-translate-y-px sm:hover:shadow-[6px_6px_0_#1B2A4A]"
+        tabIndex={showCta ? 0 : -1}
       >
         Termin&nbsp;★
       </a>
     </div>
-
-    {/* Sticky burger — small screens only; stays reachable while scrolling and
-        has a solid background so it's always legible over page content */}
-    <button
-      type="button"
-      onClick={() => setMenuOpen(true)}
-      className={`fixed right-4 top-4 z-[55] flex min-h-[44px] items-center gap-2 border-2 border-navy bg-cream px-4 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-navy shadow-[3px_3px_0_#1B2A4A] transition-all duration-300 md:hidden ${
-        pastHeader && !menuOpen
-          ? 'opacity-100'
-          : 'pointer-events-none -translate-y-3 opacity-0'
-      }`}
-      aria-label="Menü öffnen"
-      aria-expanded={menuOpen}
-      tabIndex={pastHeader && !menuOpen ? 0 : -1}
-    >
-      <span className="flex flex-col gap-[3px]">
-        <span className="block h-0.5 w-[22px] bg-navy" />
-        <span className="block h-0.5 w-[22px] bg-navy" />
-        <span className="block h-0.5 w-[22px] bg-navy" />
-      </span>
-      Menü
-    </button>
     </>
   );
 }
