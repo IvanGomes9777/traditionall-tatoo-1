@@ -78,7 +78,7 @@ export default function Navbar() {
 
       {/* Main nav */}
       <div
-        className={`border-b-2 border-navy bg-cream/95 backdrop-blur transition-shadow duration-300 ${
+        className={`border-b-2 border-navy bg-cream transition-shadow duration-300 ${
           scrolled ? 'shadow-[0_4px_0_rgba(27,42,74,0.12)]' : ''
         }`}
       >
@@ -211,13 +211,20 @@ export default function Navbar() {
         >
           ★ Termin buchen ★
         </a>
+        <a
+          href="tel:+49251221488"
+          onClick={() => setMenuOpen(false)}
+          className="font-mono text-[0.8125rem] uppercase tracking-[0.14em] text-gold transition-colors hover:text-cream"
+        >
+          ☎ Anruf · 0251 / 22 14 88
+        </a>
       </div>
     </header>
 
     {/* Floating action buttons — kept outside <header> so they stay fixed to
         the viewport and remain reachable once the header has scrolled away */}
     <div
-      className={`fixed bottom-5 right-5 z-[55] flex items-center gap-3 transition-all duration-300 sm:bottom-7 sm:right-7 ${
+      className={`fixed bottom-5 right-5 z-[55] hidden items-center gap-3 transition-all duration-300 sm:bottom-7 sm:right-7 md:flex ${
         pastHeader && !menuOpen
           ? 'opacity-100'
           : 'pointer-events-none translate-y-3 opacity-0'
@@ -239,6 +246,28 @@ export default function Navbar() {
         Termin&nbsp;★
       </a>
     </div>
+
+    {/* Sticky burger — small screens only; stays reachable while scrolling and
+        has a solid background so it's always legible over page content */}
+    <button
+      type="button"
+      onClick={() => setMenuOpen(true)}
+      className={`fixed right-4 top-4 z-[55] flex min-h-[44px] items-center gap-2 border-2 border-navy bg-cream px-4 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-navy shadow-[3px_3px_0_#1B2A4A] transition-all duration-300 md:hidden ${
+        pastHeader && !menuOpen
+          ? 'opacity-100'
+          : 'pointer-events-none -translate-y-3 opacity-0'
+      }`}
+      aria-label="Menü öffnen"
+      aria-expanded={menuOpen}
+      tabIndex={pastHeader && !menuOpen ? 0 : -1}
+    >
+      <span className="flex flex-col gap-[3px]">
+        <span className="block h-0.5 w-[22px] bg-navy" />
+        <span className="block h-0.5 w-[22px] bg-navy" />
+        <span className="block h-0.5 w-[22px] bg-navy" />
+      </span>
+      Menü
+    </button>
     </>
   );
 }
